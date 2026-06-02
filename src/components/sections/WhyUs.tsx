@@ -1,0 +1,73 @@
+import { Container } from "@/components/ui/Container";
+import { Section, SectionHeading } from "@/components/ui/Section";
+import { WaveDivider } from "@/components/ui/WaveDivider";
+
+const reasons = [
+  {
+    icon: "👥",
+    title: "Male grupe",
+    text: "Maksimalno 6 polaznika po grupi — više vremena za svakoga i više prakse.",
+  },
+  {
+    icon: "🎓",
+    title: "Iskusni predavači",
+    text: "Sertifikovani profesori sa godinama iskustva i ljubavlju prema podučavanju.",
+  },
+  {
+    icon: "🕐",
+    title: "Fleksibilni termini",
+    text: "Jutarnji, popodnevni i večernji termini — uklapaš časove u svoj raspored.",
+  },
+  {
+    icon: "💻",
+    title: "Online i uživo",
+    text: "Pohađaj časove u učionici ili iz udobnosti svog doma — izbor je tvoj.",
+  },
+  {
+    icon: "📚",
+    title: "Materijali uključeni",
+    text: "Svi udžbenici i dodatni materijali su deo kursa, bez skrivenih troškova.",
+  },
+  {
+    icon: "🏆",
+    title: "Priprema za ispite",
+    text: "Ciljana priprema za Cambridge, IELTS, Goethe i ÖSD sertifikate.",
+  },
+];
+
+export function WhyUs() {
+  return (
+    <Section id="zasto" className="relative overflow-hidden bg-ink py-20 sm:py-28">
+      <div className="pointer-events-none absolute right-0 top-1/4 h-72 w-72 rounded-full bg-secondary/15 blur-3xl" />
+      <div className="pointer-events-none absolute left-0 bottom-1/4 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
+
+      <Container className="relative">
+        <SectionHeading
+          invert
+          eyebrow="Zašto Spiko Edu"
+          title="Sve što ti treba da uspeš"
+          description="Pažljivo smo osmislili svaki detalj iskustva učenja — od veličine grupe do materijala."
+        />
+
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {reasons.map((r) => (
+            <div
+              key={r.title}
+              className="group rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-white/10"
+            >
+              <span className="grid h-14 w-14 place-items-center rounded-2xl bg-white/10 text-3xl transition-transform group-hover:scale-110">
+                {r.icon}
+              </span>
+              <h3 className="mt-5 text-lg font-bold text-white">{r.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-white/60">
+                {r.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Container>
+
+      <WaveDivider variant="curve" position="bottom" fillClassName="fill-white" />
+    </Section>
+  );
+}
