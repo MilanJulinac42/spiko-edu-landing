@@ -1,20 +1,13 @@
-import DE from "country-flag-icons/react/3x2/DE";
-import GB from "country-flag-icons/react/3x2/GB";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { WaveDivider } from "@/components/ui/WaveDivider";
+import { HeroArt } from "@/components/HeroArt";
 
 const stats = [
   { value: "1200+", label: "Zadovoljnih polaznika" },
   { value: "15+", label: "Godina iskustva" },
   { value: "98%", label: "Položenih ispita" },
-];
-
-const chat = [
-  { from: "teacher", text: "Guten Tag! Wie heißt du?" },
-  { from: "student", text: "Ich heiße Marko. Und du?" },
-  { from: "teacher", text: "Sehr gut! Perfekt izgovoreno 👏" },
 ];
 
 export function Hero() {
@@ -83,70 +76,9 @@ export function Hero() {
           </dl>
         </div>
 
-        {/* vizuelni panel — razgovor od prvog časa */}
-        <div className="relative mx-auto hidden max-w-md lg:block">
-          <div className="animate-float rounded-3xl bg-white p-5 shadow-card ring-1 ring-black/5">
-            {/* header kartice */}
-            <div className="flex items-center justify-between border-b border-ink/5 pb-4">
-              <div className="flex items-center gap-3">
-                <DE className="h-9 w-13 rounded-md shadow-sm ring-1 ring-ink/10" />
-                <div>
-                  <p className="font-display font-semibold text-ink">
-                    Nemački · Konverzacija
-                  </p>
-                  <p className="text-xs text-muted">Nivo A1 · čas uživo</p>
-                </div>
-              </div>
-              <span className="flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary-dark">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
-                Uživo
-              </span>
-            </div>
-
-            {/* chat */}
-            <div className="space-y-3 py-4">
-              {chat.map((m, i) =>
-                m.from === "teacher" ? (
-                  <div key={i} className="flex justify-start">
-                    <p className="max-w-[80%] rounded-2xl rounded-tl-sm bg-surface px-4 py-2.5 text-sm text-ink">
-                      {m.text}
-                    </p>
-                  </div>
-                ) : (
-                  <div key={i} className="flex justify-end">
-                    <p className="max-w-[80%] rounded-2xl rounded-tr-sm bg-primary px-4 py-2.5 text-sm font-medium text-ink">
-                      {m.text}
-                    </p>
-                  </div>
-                )
-              )}
-              {/* typing indikator */}
-              <div className="flex justify-start">
-                <span className="flex gap-1 rounded-2xl rounded-tl-sm bg-surface px-4 py-3">
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted/60 [animation-delay:0ms]" />
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted/60 [animation-delay:150ms]" />
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted/60 [animation-delay:300ms]" />
-                </span>
-              </div>
-            </div>
-
-            <p className="border-t border-ink/5 pt-4 text-center text-xs text-muted">
-              Govoriš nemački već od <span className="font-semibold text-ink">prvog časa</span>
-            </p>
-          </div>
-
-          {/* sekundarni — engleski */}
-          <div className="absolute -bottom-5 -left-6 flex animate-float items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-card ring-1 ring-black/5 [animation-delay:1.2s]">
-            <GB className="h-6 w-9 rounded shadow-sm ring-1 ring-ink/10" />
-            <span className="text-sm font-semibold text-ink">
-              I engleski jezik
-            </span>
-          </div>
-
-          {/* badge upis */}
-          <div className="absolute -right-6 -top-6 animate-float rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-ink shadow-card [animation-delay:1.5s]">
-            🎉 Upis u toku!
-          </div>
+        {/* vizuelni panel — apstraktna kompozicija */}
+        <div className="hidden lg:block">
+          <HeroArt />
         </div>
       </Container>
 

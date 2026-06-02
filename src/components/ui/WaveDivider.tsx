@@ -27,7 +27,7 @@ export function WaveDivider({
       aria-hidden
       className={cn(
         "pointer-events-none absolute inset-x-0 z-10 leading-[0]",
-        position === "bottom" ? "bottom-0" : "top-0",
+        position === "bottom" ? "-bottom-px" : "-top-px",
         className
       )}
     >
@@ -35,7 +35,7 @@ export function WaveDivider({
         viewBox="0 0 1440 160"
         preserveAspectRatio="none"
         className={cn(
-          "h-[60px] w-full sm:h-[90px]",
+          "block h-[61px] w-full sm:h-[91px]",
           position === "top" && "rotate-180",
           fillClassName
         )}

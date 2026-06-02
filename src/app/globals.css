@@ -65,8 +65,22 @@ h6 {
   }
 }
 
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 38s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow 46s linear infinite reverse;
 }
 
 .animate-fade-up {
