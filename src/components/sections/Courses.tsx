@@ -1,13 +1,28 @@
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { FlagGB, FlagUS, FlagDE } from "@/components/Flags";
+import GB from "country-flag-icons/react/3x2/GB";
+import US from "country-flag-icons/react/3x2/US";
+import DE from "country-flag-icons/react/3x2/DE";
 
 const courses = [
   {
-    flags: [FlagGB, FlagUS],
-    name: "Engleski jezik",
+    flags: [DE],
+    name: "Nemački jezik",
     accent: "primary" as const,
+    description:
+      "Naš glavni program. Sistematično učenje nemačkog za školu, posao ili život u inostranstvu. Priprema za Goethe i ÖSD sertifikate.",
+    levels: ["A1", "A2", "B1", "B2", "C1"],
+    features: [
+      "Priprema za Goethe / ÖSD",
+      "Nemački za zdravstvene radnike",
+      "Grupni, individualni i intenzivni kursevi",
+    ],
+  },
+  {
+    flags: [GB, US],
+    name: "Engleski jezik",
+    accent: "secondary" as const,
     description:
       "Od početnog do naprednog nivoa. Priprema za Cambridge i IELTS ispite, poslovni engleski i konverzacija.",
     levels: ["A1", "A2", "B1", "B2", "C1"],
@@ -15,19 +30,6 @@ const courses = [
       "Grupni i individualni časovi",
       "Priprema za međunarodne ispite",
       "Poslovni engleski",
-    ],
-  },
-  {
-    flags: [FlagDE],
-    name: "Nemački jezik",
-    accent: "secondary" as const,
-    description:
-      "Sistematično učenje nemačkog za školu, posao ili život u inostranstvu. Priprema za Goethe i ÖSD sertifikate.",
-    levels: ["A1", "A2", "B1", "B2"],
-    features: [
-      "Priprema za Goethe / ÖSD",
-      "Nemački za zdravstvene radnike",
-      "Intenzivni kursevi",
     ],
   },
 ];
@@ -58,7 +60,10 @@ export function Courses() {
                 <div className="relative">
                   <span className="inline-flex items-center gap-2 rounded-2xl bg-surface p-3">
                     {c.flags.map((Flag, i) => (
-                      <Flag key={i} className="h-9 w-13" />
+                      <Flag
+                        key={i}
+                        className="h-9 w-auto rounded-md shadow-sm ring-1 ring-ink/10"
+                      />
                     ))}
                   </span>
                   <h3 className="mt-5 text-2xl font-bold text-ink">{c.name}</h3>

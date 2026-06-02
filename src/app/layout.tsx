@@ -16,9 +16,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Spiko Edu — Škola jezika | Engleski i Nemački",
+  title: "Spiko Edu — Škola jezika | Nemački i Engleski",
   description:
-    "Spiko Edu je škola jezika za engleski i nemački. Časovi prilagođeni tebi, iskusni predavači i metodologija koja stvarno radi.",
+    "Spiko Edu je škola jezika za nemački i engleski. Časovi prilagođeni tebi, iskusni predavači i metodologija koja stvarno radi.",
 };
 
 export default function RootLayout({

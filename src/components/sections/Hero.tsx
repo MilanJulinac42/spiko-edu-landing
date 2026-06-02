@@ -1,3 +1,5 @@
+import DE from "country-flag-icons/react/3x2/DE";
+import GB from "country-flag-icons/react/3x2/GB";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
@@ -7,6 +9,12 @@ const stats = [
   { value: "1200+", label: "Zadovoljnih polaznika" },
   { value: "15+", label: "Godina iskustva" },
   { value: "98%", label: "Položenih ispita" },
+];
+
+const chat = [
+  { from: "teacher", text: "Guten Tag! Wie heißt du?" },
+  { from: "student", text: "Ich heiße Marko. Und du?" },
+  { from: "teacher", text: "Sehr gut! Perfekt izgovoreno 👏" },
 ];
 
 export function Hero() {
@@ -23,7 +31,7 @@ export function Hero() {
         <div className="animate-fade-up text-center lg:text-left">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-primary-light">
             <span className="h-2 w-2 rounded-full bg-primary" />
-            Engleski i nemački jezik
+            Nemački i engleski jezik
           </span>
 
           <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -75,40 +83,67 @@ export function Hero() {
           </dl>
         </div>
 
-        {/* vizuelni panel */}
+        {/* vizuelni panel — razgovor od prvog časa */}
         <div className="relative mx-auto hidden max-w-md lg:block">
-          <div className="animate-float rounded-3xl bg-white/5 p-6 shadow-card ring-1 ring-white/10 backdrop-blur">
-            <div className="rounded-2xl bg-white p-6">
+          <div className="animate-float rounded-3xl bg-white p-5 shadow-card ring-1 ring-black/5">
+            {/* header kartice */}
+            <div className="flex items-center justify-between border-b border-ink/5 pb-4">
               <div className="flex items-center gap-3">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/15 text-2xl">
-                  🇬🇧
-                </span>
+                <DE className="h-9 w-13 rounded-md shadow-sm ring-1 ring-ink/10" />
                 <div>
                   <p className="font-display font-semibold text-ink">
-                    Engleski — Konverzacija
+                    Nemački · Konverzacija
                   </p>
-                  <p className="text-sm text-muted">Nivo B1 · utorak 18h</p>
+                  <p className="text-xs text-muted">Nivo A1 · čas uživo</p>
                 </div>
               </div>
-              <div className="mt-5 space-y-3">
-                <div className="h-2.5 w-full rounded-full bg-surface">
-                  <div className="h-full w-4/5 rounded-full bg-primary" />
-                </div>
-                <p className="text-sm text-muted">Napredak kursa · 80%</p>
+              <span className="flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary-dark">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
+                Uživo
+              </span>
+            </div>
+
+            {/* chat */}
+            <div className="space-y-3 py-4">
+              {chat.map((m, i) =>
+                m.from === "teacher" ? (
+                  <div key={i} className="flex justify-start">
+                    <p className="max-w-[80%] rounded-2xl rounded-tl-sm bg-surface px-4 py-2.5 text-sm text-ink">
+                      {m.text}
+                    </p>
+                  </div>
+                ) : (
+                  <div key={i} className="flex justify-end">
+                    <p className="max-w-[80%] rounded-2xl rounded-tr-sm bg-primary px-4 py-2.5 text-sm font-medium text-ink">
+                      {m.text}
+                    </p>
+                  </div>
+                )
+              )}
+              {/* typing indikator */}
+              <div className="flex justify-start">
+                <span className="flex gap-1 rounded-2xl rounded-tl-sm bg-surface px-4 py-3">
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted/60 [animation-delay:0ms]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted/60 [animation-delay:150ms]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted/60 [animation-delay:300ms]" />
+                </span>
               </div>
             </div>
 
-            <div className="mt-4 flex items-center gap-3 rounded-2xl bg-secondary p-4 text-white">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/20 text-xl">
-                🇩🇪
-              </span>
-              <div>
-                <p className="text-sm font-semibold">Nemački — Početni</p>
-                <p className="text-xs text-white/80">Novi termin: sreda 19h</p>
-              </div>
-            </div>
+            <p className="border-t border-ink/5 pt-4 text-center text-xs text-muted">
+              Govoriš nemački već od <span className="font-semibold text-ink">prvog časa</span>
+            </p>
           </div>
 
+          {/* sekundarni — engleski */}
+          <div className="absolute -bottom-5 -left-6 flex animate-float items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-card ring-1 ring-black/5 [animation-delay:1.2s]">
+            <GB className="h-6 w-9 rounded shadow-sm ring-1 ring-ink/10" />
+            <span className="text-sm font-semibold text-ink">
+              I engleski jezik
+            </span>
+          </div>
+
+          {/* badge upis */}
           <div className="absolute -right-6 -top-6 animate-float rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-ink shadow-card [animation-delay:1.5s]">
             🎉 Upis u toku!
           </div>

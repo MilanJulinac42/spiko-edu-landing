@@ -5,8 +5,8 @@ const cols = [
   {
     title: "Kursevi",
     links: [
-      { href: "#kursevi", label: "Engleski jezik" },
       { href: "#kursevi", label: "Nemački jezik" },
+      { href: "#kursevi", label: "Engleski jezik" },
       { href: "#kursevi", label: "Individualna nastava" },
       { href: "#kursevi", label: "Grupni časovi" },
     ],
@@ -30,7 +30,7 @@ export function Footer() {
           <div>
             <Logo invert />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
-              Škola jezika za engleski i nemački. Učimo te da govoriš
+              Škola jezika za nemački i engleski. Učimo te da govoriš
               samopouzdano — kroz časove prilagođene baš tebi.
             </p>
           </div>

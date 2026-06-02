@@ -115,8 +115,8 @@ export function Contact() {
                       <option value="" disabled>
                         Izaberi jezik
                       </option>
-                      <option>Engleski</option>
                       <option>Nemački</option>
+                      <option>Engleski</option>
                       <option>Oba</option>
                     </select>
                   </div>
