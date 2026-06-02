@@ -42,14 +42,19 @@ export function Navbar() {
       )}
     >
       <Container className="flex h-18 items-center justify-between py-3">
-        <Logo />
+        <Logo invert={!scrolled} />
 
         <nav className="hidden items-center gap-8 lg:flex">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-ink/80 transition-colors hover:text-primary-dark"
+              className={cn(
+                "text-sm font-medium transition-colors",
+                scrolled
+                  ? "text-ink/80 hover:text-primary-dark"
+                  : "text-white/90 hover:text-primary"
+              )}
             >
               {l.label}
             </a>
@@ -67,7 +72,10 @@ export function Navbar() {
           aria-label="Otvori meni"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full text-ink lg:hidden"
+          className={cn(
+            "inline-flex h-11 w-11 items-center justify-center rounded-full lg:hidden",
+            scrolled ? "text-ink" : "text-white"
+          )}
         >
           <span className="relative block h-4 w-6">
             <span
