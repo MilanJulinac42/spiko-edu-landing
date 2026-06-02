@@ -1,10 +1,11 @@
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { FlagGB, FlagUS, FlagDE } from "@/components/Flags";
 
 const courses = [
   {
-    flag: "🇬🇧",
+    flags: [FlagGB, FlagUS],
     name: "Engleski jezik",
     accent: "primary" as const,
     description:
@@ -17,7 +18,7 @@ const courses = [
     ],
   },
   {
-    flag: "🇩🇪",
+    flags: [FlagDE],
     name: "Nemački jezik",
     accent: "secondary" as const,
     description:
@@ -55,8 +56,10 @@ export function Courses() {
                   } opacity-60`}
                 />
                 <div className="relative">
-                  <span className="grid h-16 w-16 place-items-center rounded-2xl bg-surface text-4xl">
-                    {c.flag}
+                  <span className="inline-flex items-center gap-2 rounded-2xl bg-surface p-3">
+                    {c.flags.map((Flag, i) => (
+                      <Flag key={i} className="h-9 w-13" />
+                    ))}
                   </span>
                   <h3 className="mt-5 text-2xl font-bold text-ink">{c.name}</h3>
                   <p className="mt-3 leading-relaxed text-muted">
