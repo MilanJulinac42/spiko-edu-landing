@@ -1,35 +1,43 @@
+import {
+  Users,
+  GraduationCap,
+  Clock,
+  MonitorSmartphone,
+  BookOpen,
+  Trophy,
+} from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { WaveDivider } from "@/components/ui/WaveDivider";
 
 const reasons = [
   {
-    icon: "👥",
+    icon: Users,
     title: "Male grupe",
     text: "Maksimalno 6 polaznika po grupi — više vremena za svakoga i više prakse.",
   },
   {
-    icon: "🎓",
+    icon: GraduationCap,
     title: "Iskusni predavači",
     text: "Sertifikovani profesori sa godinama iskustva i ljubavlju prema podučavanju.",
   },
   {
-    icon: "🕐",
+    icon: Clock,
     title: "Fleksibilni termini",
     text: "Jutarnji, popodnevni i večernji termini — uklapaš časove u svoj raspored.",
   },
   {
-    icon: "💻",
+    icon: MonitorSmartphone,
     title: "Online i uživo",
     text: "Pohađaj časove u učionici ili iz udobnosti svog doma — izbor je tvoj.",
   },
   {
-    icon: "📚",
+    icon: BookOpen,
     title: "Materijali uključeni",
     text: "Svi udžbenici i dodatni materijali su deo kursa, bez skrivenih troškova.",
   },
   {
-    icon: "🏆",
+    icon: Trophy,
     title: "Priprema za ispite",
     text: "Ciljana priprema za Cambridge, IELTS, Goethe i ÖSD sertifikate.",
   },
@@ -55,8 +63,8 @@ export function WhyUs() {
               key={r.title}
               className="group rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-white/10"
             >
-              <span className="grid h-14 w-14 place-items-center rounded-2xl bg-white/10 text-3xl transition-transform group-hover:scale-110">
-                {r.icon}
+              <span className="grid h-14 w-14 place-items-center rounded-2xl bg-white/10 text-primary transition-transform group-hover:scale-110">
+                <r.icon className="h-7 w-7" strokeWidth={2} aria-hidden />
               </span>
               <h3 className="mt-5 text-lg font-bold text-white">{r.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-white/60">

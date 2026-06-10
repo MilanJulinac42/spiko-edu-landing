@@ -1,3 +1,4 @@
+import { Target, Map, MessagesSquare, LineChart } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { WaveDivider } from "@/components/ui/WaveDivider";
@@ -7,25 +8,25 @@ const steps = [
     num: "01",
     title: "Procena nivoa",
     text: "Besplatan probni čas na kom utvrđujemo tvoj nivo i ciljeve.",
-    icon: "🎯",
+    icon: Target,
   },
   {
     num: "02",
     title: "Plan učenja",
     text: "Pravimo program prilagođen tvom tempu, rasporedu i potrebama.",
-    icon: "🗺️",
+    icon: Map,
   },
   {
     num: "03",
     title: "Učenje kroz razgovor",
     text: "Govoriš od prvog časa. Gramatiku savladavaš kroz praktične situacije.",
-    icon: "💬",
+    icon: MessagesSquare,
   },
   {
     num: "04",
     title: "Praćenje napretka",
     text: "Redovni feedback i provere znanja da uvek znaš gde si.",
-    icon: "📈",
+    icon: LineChart,
   },
 ];
 
@@ -48,7 +49,9 @@ export function Methodology() {
               key={s.num}
               className="relative rounded-3xl bg-white p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
             >
-              <span className="text-4xl">{s.icon}</span>
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary-dark">
+                <s.icon className="h-6 w-6" strokeWidth={2} aria-hidden />
+              </span>
               <span className="absolute right-6 top-6 font-display text-3xl font-extrabold text-primary/15">
                 {s.num}
               </span>

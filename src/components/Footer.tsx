@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/Logo";
 
@@ -84,12 +85,12 @@ export function Footer() {
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-white/50 sm:flex-row">
           <p>© {new Date().getFullYear()} Spiko Edu. Sva prava zadržana.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-primary">
+            <Link href="/politika-privatnosti" className="hover:text-primary">
               Politika privatnosti
-            </a>
-            <a href="#" className="hover:text-primary">
+            </Link>
+            <Link href="/uslovi-koriscenja" className="hover:text-primary">
               Uslovi korišćenja
-            </a>
+            </Link>
           </div>
         </div>
       </Container>

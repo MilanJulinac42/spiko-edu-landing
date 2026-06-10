@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Inter } from "next/font/google";
+import Script from "next/script";
+import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -15,10 +17,49 @@ const inter = Inter({
   display: "swap",
 });
 
+const SITE_URL = "https://spikoedu.rs";
+const SITE_NAME = "Spiko Edu";
+const SITE_DESCRIPTION =
+  "Spiko Edu je škola jezika za nemački i engleski. Časovi prilagođeni tebi, iskusni predavači i metodologija koja stvarno radi.";
+
 export const metadata: Metadata = {
-  title: "Spiko Edu — Škola jezika | Nemački i Engleski",
-  description:
-    "Spiko Edu je škola jezika za nemački i engleski. Časovi prilagođeni tebi, iskusni predavači i metodologija koja stvarno radi.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Spiko Edu — Škola jezika | Nemački i Engleski",
+    template: "%s | Spiko Edu",
+  },
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "škola jezika",
+    "nemački jezik",
+    "engleski jezik",
+    "kurs nemačkog",
+    "kurs engleskog",
+    "Goethe",
+    "ÖSD",
+    "IELTS",
+    "Cambridge",
+    "Spiko Edu",
+  ],
+  applicationName: SITE_NAME,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "sr_RS",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: "Spiko Edu — Škola jezika | Nemački i Engleski",
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Spiko Edu — Škola jezika | Nemački i Engleski",
+    description: SITE_DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -33,6 +74,13 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-white text-ink">
         {children}
+        <JsonLd />
+        <Script
+          defer
+          data-domain="spikoedu.rs"
+          src="https://plausible.io/js/script.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

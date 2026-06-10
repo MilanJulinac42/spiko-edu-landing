@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
@@ -79,39 +80,69 @@ export function Contact() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="mb-1.5 block text-sm font-medium text-ink">
+                    <label
+                      htmlFor="ime"
+                      className="mb-1.5 block text-sm font-medium text-ink"
+                    >
                       Ime i prezime
                     </label>
-                    <input required className={inputClass} placeholder="Tvoje ime" />
+                    <input
+                      id="ime"
+                      name="ime"
+                      required
+                      autoComplete="name"
+                      className={inputClass}
+                      placeholder="Tvoje ime"
+                    />
                   </div>
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
-                      <label className="mb-1.5 block text-sm font-medium text-ink">
+                      <label
+                        htmlFor="email"
+                        className="mb-1.5 block text-sm font-medium text-ink"
+                      >
                         Email
                       </label>
                       <input
+                        id="email"
+                        name="email"
                         required
                         type="email"
+                        autoComplete="email"
                         className={inputClass}
                         placeholder="ti@email.com"
                       />
                     </div>
                     <div>
-                      <label className="mb-1.5 block text-sm font-medium text-ink">
+                      <label
+                        htmlFor="telefon"
+                        className="mb-1.5 block text-sm font-medium text-ink"
+                      >
                         Telefon
                       </label>
                       <input
+                        id="telefon"
+                        name="telefon"
                         type="tel"
+                        autoComplete="tel"
                         className={inputClass}
                         placeholder="06x xxx xxxx"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="mb-1.5 block text-sm font-medium text-ink">
+                    <label
+                      htmlFor="jezik"
+                      className="mb-1.5 block text-sm font-medium text-ink"
+                    >
                       Jezik koji te zanima
                     </label>
-                    <select className={inputClass} defaultValue="">
+                    <select
+                      id="jezik"
+                      name="jezik"
+                      className={inputClass}
+                      defaultValue=""
+                    >
                       <option value="" disabled>
                         Izaberi jezik
                       </option>
@@ -121,10 +152,15 @@ export function Contact() {
                     </select>
                   </div>
                   <div>
-                    <label className="mb-1.5 block text-sm font-medium text-ink">
+                    <label
+                      htmlFor="poruka"
+                      className="mb-1.5 block text-sm font-medium text-ink"
+                    >
                       Poruka (opciono)
                     </label>
                     <textarea
+                      id="poruka"
+                      name="poruka"
                       rows={3}
                       className={inputClass}
                       placeholder="Reci nam nešto o svojim ciljevima…"
@@ -134,7 +170,14 @@ export function Contact() {
                     Pošalji prijavu
                   </Button>
                   <p className="text-center text-xs text-muted">
-                    Slanjem prihvataš našu politiku privatnosti.
+                    Slanjem prihvataš našu{" "}
+                    <Link
+                      href="/politika-privatnosti"
+                      className="underline hover:text-primary-dark"
+                    >
+                      politiku privatnosti
+                    </Link>
+                    .
                   </p>
                 </form>
               )}
