@@ -54,10 +54,10 @@ export function Hero() {
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:items-start lg:justify-start">
-            <Button href="#kontakt" variant="primary" size="lg">
+            <Button href="/kontakt" variant="primary" size="lg">
               Zakaži besplatan probni čas
             </Button>
-            <Button href="#kursevi" variant="outline" size="lg" className="border-white/20 text-white hover:border-primary hover:text-primary-light">
+            <Button href="/kursevi" variant="outline" size="lg" className="border-white/20 text-white hover:border-primary hover:text-primary-light">
               Pogledaj kurseve
             </Button>
           </div>

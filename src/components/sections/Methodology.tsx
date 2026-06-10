@@ -1,7 +1,6 @@
 import { Target, Map, MessagesSquare, LineChart } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
-import { WaveDivider } from "@/components/ui/WaveDivider";
 
 const steps = [
   {
@@ -34,7 +33,7 @@ export function Methodology() {
   return (
     <Section
       id="metodologija"
-      className="relative overflow-hidden bg-surface py-20 sm:py-28"
+      className="relative overflow-hidden bg-white py-20 sm:py-28"
     >
       <Container>
         <SectionHeading
@@ -47,7 +46,7 @@ export function Methodology() {
           {steps.map((s, i) => (
             <div
               key={s.num}
-              className="relative rounded-3xl bg-white p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
+              className="relative rounded-3xl bg-surface p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
             >
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary-dark">
                 <s.icon className="h-6 w-6" strokeWidth={2} aria-hidden />
@@ -74,8 +73,6 @@ export function Methodology() {
           ))}
         </div>
       </Container>
-
-      <WaveDivider variant="wave-soft" position="bottom" fillClassName="fill-ink" />
     </Section>
   );
 }

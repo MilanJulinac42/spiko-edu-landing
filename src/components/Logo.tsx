@@ -10,7 +10,7 @@ export function Logo({
 }) {
   return (
     <Link
-      href="#hero"
+      href="/"
       className={cn(
         "group inline-flex items-center text-2xl font-extrabold tracking-tight",
         className

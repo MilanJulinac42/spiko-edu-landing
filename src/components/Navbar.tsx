@@ -1,22 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/Logo";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "#kursevi", label: "Kursevi" },
-  { href: "#metodologija", label: "Metodologija" },
-  { href: "#zasto", label: "Zašto Spiko" },
-  { href: "#utisci", label: "Utisci" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/kursevi", label: "Kursevi" },
+  { href: "/cenovnik", label: "Cenovnik" },
+  { href: "/o-nama", label: "O nama" },
+  { href: "/kontakt", label: "Kontakt" },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -45,24 +47,31 @@ export function Navbar() {
         <Logo invert={!scrolled} />
 
         <nav className="hidden items-center gap-8 lg:flex">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className={cn(
-                "text-sm font-medium transition-colors",
-                scrolled
-                  ? "text-ink/80 hover:text-primary-dark"
-                  : "text-white/90 hover:text-primary"
-              )}
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) => {
+            const active = pathname === l.href;
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                className={cn(
+                  "text-sm font-medium transition-colors",
+                  scrolled
+                    ? active
+                      ? "text-primary-dark"
+                      : "text-ink/80 hover:text-primary-dark"
+                    : active
+                      ? "text-primary"
+                      : "text-white/90 hover:text-primary"
+                )}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button href="#kontakt" variant="primary" size="md">
+          <Button href="/kontakt" variant="primary" size="md">
             Prijavi se
           </Button>
         </div>
@@ -109,17 +118,20 @@ export function Navbar() {
       >
         <Container className="flex flex-col gap-1 py-4">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="rounded-xl px-3 py-3 text-base font-medium text-ink/80 hover:bg-surface hover:text-primary-dark"
+              className={cn(
+                "rounded-xl px-3 py-3 text-base font-medium hover:bg-surface hover:text-primary-dark",
+                pathname === l.href ? "text-primary-dark" : "text-ink/80"
+              )}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <Button
-            href="#kontakt"
+            href="/kontakt"
             variant="primary"
             size="lg"
             className="mt-2"

@@ -6,19 +6,19 @@ const cols = [
   {
     title: "Kursevi",
     links: [
-      { href: "#kursevi", label: "Nemački jezik" },
-      { href: "#kursevi", label: "Engleski jezik" },
-      { href: "#kursevi", label: "Individualna nastava" },
-      { href: "#kursevi", label: "Grupni časovi" },
+      { href: "/kursevi", label: "Nemački jezik" },
+      { href: "/kursevi", label: "Engleski jezik" },
+      { href: "/cenovnik", label: "Individualna nastava" },
+      { href: "/cenovnik", label: "Grupni časovi" },
     ],
   },
   {
     title: "Škola",
     links: [
-      { href: "#metodologija", label: "Metodologija" },
-      { href: "#zasto", label: "Zašto Spiko" },
-      { href: "#utisci", label: "Utisci polaznika" },
-      { href: "#faq", label: "Česta pitanja" },
+      { href: "/o-nama", label: "O nama" },
+      { href: "/o-nama", label: "Metodologija" },
+      { href: "/cenovnik", label: "Cenovnik" },
+      { href: "/cenovnik", label: "Česta pitanja" },
     ],
   },
 ];
@@ -44,12 +44,12 @@ export function Footer() {
               <ul className="mt-4 space-y-3">
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    <a
+                    <Link
                       href={l.href}
                       className="text-sm text-white/70 transition-colors hover:text-primary"
                     >
                       {l.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

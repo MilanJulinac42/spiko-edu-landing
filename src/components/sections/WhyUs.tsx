@@ -43,7 +43,7 @@ const reasons = [
   },
 ];
 
-export function WhyUs() {
+export function WhyUs({ waveFill = "fill-white" }: { waveFill?: string }) {
   return (
     <Section id="zasto" className="relative overflow-hidden bg-ink py-20 sm:py-28">
       <div className="pointer-events-none absolute right-0 top-1/4 h-72 w-72 rounded-full bg-secondary/15 blur-3xl" />
@@ -75,7 +75,7 @@ export function WhyUs() {
         </div>
       </Container>
 
-      <WaveDivider variant="curve" position="bottom" fillClassName="fill-white" />
+      <WaveDivider variant="curve" position="bottom" fillClassName={waveFill} />
     </Section>
   );
 }

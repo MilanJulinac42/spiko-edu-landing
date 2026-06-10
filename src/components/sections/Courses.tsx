@@ -110,7 +110,7 @@ export function Courses() {
                   </ul>
 
                   <Button
-                    href="#kontakt"
+                    href="/kontakt"
                     variant={isPrimary ? "primary" : "secondary"}
                     className="mt-8 w-full"
                   >
