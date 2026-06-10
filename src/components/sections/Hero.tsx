@@ -82,7 +82,7 @@ export function Hero() {
         </div>
       </Container>
 
-      <WaveDivider variant="wave" position="bottom" fillClassName="fill-white" />
+      <WaveDivider variant="wave" position="bottom" fillClassName="fill-surface" />
     </Section>
   );
 }
