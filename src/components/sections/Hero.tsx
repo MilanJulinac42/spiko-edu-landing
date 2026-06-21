@@ -2,7 +2,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { WaveDivider } from "@/components/ui/WaveDivider";
-import { HeroArt } from "@/components/HeroArt";
+import { EarthGlobe } from "@/components/EarthGlobe";
 
 const stats = [
   { value: "1200+", label: "Zadovoljnih polaznika" },
@@ -76,9 +76,9 @@ export function Hero() {
           </dl>
         </div>
 
-        {/* vizuelni panel — apstraktna kompozicija */}
+        {/* vizuelni panel — interaktivna Zemlja */}
         <div className="hidden lg:block">
-          <HeroArt />
+          <EarthGlobe />
         </div>
       </Container>
 

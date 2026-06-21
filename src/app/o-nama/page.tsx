@@ -3,7 +3,6 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { Team } from "@/components/sections/Team";
 import { Methodology } from "@/components/sections/Methodology";
 import { WhyUs } from "@/components/sections/WhyUs";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { CtaBand } from "@/components/sections/CtaBand";
 
 export const metadata: Metadata = {
@@ -23,9 +22,11 @@ export default function ONamaPage() {
       />
       <Team />
       <Methodology />
-      <WhyUs />
-      <Testimonials />
-      <CtaBand />
+      <WhyUs waveFill="fill-surface" />
+      <CtaBand
+        title="Hajde da se upoznamo"
+        description="Dođi na besplatan probni čas i uveri se kako radimo — bez ikakvih obaveza."
+      />
     </>
   );
 }

@@ -29,7 +29,10 @@ export default function KurseviPage() {
       <Destinations />
       <Pricing />
       <Faq />
-      <CtaBand />
+      <CtaBand
+        title="Spreman/na da upišeš kurs?"
+        description="Zakaži besplatan probni čas — utvrdimo tvoj nivo i krenemo odatle."
+      />
     </>
   );
 }
