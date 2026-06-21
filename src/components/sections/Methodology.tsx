@@ -1,6 +1,7 @@
 import { Target, Map, MessagesSquare, LineChart } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
+import { Reveal } from "@/components/ui/Reveal";
 
 const steps = [
   {
@@ -42,7 +43,7 @@ export function Methodology() {
           description="Zaboravi bubanje. Kod nas učiš jezik onako kako se zaista koristi — u razgovoru."
         />
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, i) => (
             <div
               key={s.num}
@@ -71,7 +72,7 @@ export function Methodology() {
               )}
             </div>
           ))}
-        </div>
+        </Reveal>
       </Container>
     </Section>
   );

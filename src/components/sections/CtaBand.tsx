@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function CtaBand({
   title = "Spreman/na da progovoriš?",
@@ -14,7 +15,7 @@ export function CtaBand({
   return (
     <Section className={className}>
       <Container className="py-16 sm:py-20">
-        <div className="relative overflow-hidden rounded-3xl bg-ink px-8 py-12 text-center shadow-card sm:px-12 sm:py-16">
+        <Reveal className="relative overflow-hidden rounded-3xl bg-ink px-8 py-12 text-center shadow-card sm:px-12 sm:py-16">
           <div className="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-primary/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-secondary/20 blur-3xl" />
           <div className="relative">
@@ -36,7 +37,7 @@ export function CtaBand({
               </Button>
             </div>
           </div>
-        </div>
+        </Reveal>
       </Container>
     </Section>
   );

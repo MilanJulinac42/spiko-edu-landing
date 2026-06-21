@@ -9,6 +9,7 @@ import {
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { WaveDivider } from "@/components/ui/WaveDivider";
+import { Reveal } from "@/components/ui/Reveal";
 
 const reasons = [
   {
@@ -57,7 +58,7 @@ export function WhyUs({ waveFill = "fill-white" }: { waveFill?: string }) {
           description="Pažljivo smo osmislili svaki detalj iskustva učenja — od veličine grupe do materijala."
         />
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {reasons.map((r) => (
             <div
               key={r.title}
@@ -72,7 +73,7 @@ export function WhyUs({ waveFill = "fill-white" }: { waveFill?: string }) {
               </p>
             </div>
           ))}
-        </div>
+        </Reveal>
       </Container>
 
       <WaveDivider variant="curve" position="bottom" fillClassName={waveFill} />

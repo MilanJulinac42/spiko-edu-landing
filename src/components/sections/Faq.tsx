@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
+import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/utils";
 
 const faqs = [
@@ -44,7 +45,7 @@ export function Faq() {
           description="A ako ne nađeš ono što tražiš, javi nam se — rado ćemo pomoći."
         />
 
-        <div className="mt-12 space-y-4">
+        <Reveal stagger className="mt-12 space-y-4">
           {faqs.map((item, i) => {
             const isOpen = open === i;
             return (
@@ -97,7 +98,7 @@ export function Faq() {
               </div>
             );
           })}
-        </div>
+        </Reveal>
       </Container>
     </Section>
   );

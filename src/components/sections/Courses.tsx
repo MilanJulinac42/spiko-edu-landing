@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 import GB from "country-flag-icons/react/3x2/GB";
 import US from "country-flag-icons/react/3x2/US";
 import DE from "country-flag-icons/react/3x2/DE";
@@ -44,7 +45,7 @@ export function Courses() {
           description="Bilo da kreneš od nule ili usavršavaš ono što već znaš — imamo program za tebe."
         />
 
-        <div className="mt-14 grid gap-8 md:grid-cols-2">
+        <Reveal stagger className="mt-14 grid gap-8 md:grid-cols-2">
           {courses.map((c) => {
             const isPrimary = c.accent === "primary";
             return (
@@ -120,7 +121,7 @@ export function Courses() {
               </article>
             );
           })}
-        </div>
+        </Reveal>
       </Container>
     </Section>
   );

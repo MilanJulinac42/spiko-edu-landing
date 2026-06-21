@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 
 const inputClass =
   "w-full rounded-xl border border-ink/10 bg-white px-4 py-3 text-ink placeholder:text-muted/60 focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/15";
@@ -21,7 +22,7 @@ export function Contact() {
   return (
     <Section id="kontakt" className="bg-surface py-20 sm:py-28">
       <Container>
-        <div className="overflow-hidden rounded-3xl bg-ink shadow-card">
+        <Reveal className="overflow-hidden rounded-3xl bg-ink shadow-card">
           <div className="grid lg:grid-cols-2">
             {/* leva strana */}
             <div className="relative overflow-hidden p-8 sm:p-12">
@@ -183,7 +184,7 @@ export function Contact() {
               )}
             </div>
           </div>
-        </div>
+        </Reveal>
       </Container>
     </Section>
   );

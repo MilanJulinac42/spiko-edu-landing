@@ -2,6 +2,7 @@ import { Check } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/utils";
 
 const plans = [
@@ -57,7 +58,7 @@ export function Pricing() {
           description="Izaberi format koji ti odgovara. Tačnu cenu i termin dogovaramo na besplatnom probnom času."
         />
 
-        <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-3">
+        <Reveal stagger className="mt-14 grid items-stretch gap-8 lg:grid-cols-3">
           {plans.map((p) => (
             <article
               key={p.name}
@@ -126,7 +127,7 @@ export function Pricing() {
               </Button>
             </article>
           ))}
-        </div>
+        </Reveal>
 
         <p className="mt-8 text-center text-sm text-muted">
           * Prikazane cene su okvirne (primer). Konačnu ponudu prilagođavamo nivou,

@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
+import { Reveal } from "@/components/ui/Reveal";
 
 const testimonials = [
   {
@@ -35,7 +36,7 @@ export function Testimonials() {
           description="Ne moraš da nam veruješ na reč — evo šta kažu naši polaznici."
         />
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <Reveal stagger className="mt-14 grid gap-6 md:grid-cols-3">
           {testimonials.map((t) => (
             <figure
               key={t.name}
@@ -64,7 +65,7 @@ export function Testimonials() {
               </figcaption>
             </figure>
           ))}
-        </div>
+        </Reveal>
       </Container>
     </Section>
   );

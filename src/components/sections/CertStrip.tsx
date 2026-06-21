@@ -2,6 +2,7 @@ import DE from "country-flag-icons/react/3x2/DE";
 import GB from "country-flag-icons/react/3x2/GB";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { Reveal } from "@/components/ui/Reveal";
 
 const groups = [
   { flag: DE, label: "Nemački", exams: ["Goethe-Zertifikat", "ÖSD", "TestDaF", "telc"] },
@@ -16,7 +17,7 @@ export function CertStrip() {
           Pripremamo te za zvanične ispite i sertifikate
         </p>
 
-        <div className="mt-7 flex flex-col items-center justify-center gap-6 lg:flex-row lg:gap-12">
+        <Reveal stagger className="mt-7 flex flex-col items-center justify-center gap-6 lg:flex-row lg:gap-12">
           {groups.map((g, i) => (
             <div
               key={g.label}
@@ -41,7 +42,7 @@ export function CertStrip() {
               )}
             </div>
           ))}
-        </div>
+        </Reveal>
       </Container>
     </Section>
   );
