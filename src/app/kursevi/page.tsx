@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { CoursesDetail } from "@/components/sections/CoursesDetail";
 import { Formats } from "@/components/sections/Formats";
 import { LevelGuide } from "@/components/sections/LevelGuide";
+import { Destinations } from "@/components/sections/Destinations";
 import { Pricing } from "@/components/sections/Pricing";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -20,10 +21,12 @@ export default function KurseviPage() {
         eyebrow="Kursevi i cene"
         title="Kursevi nemačkog i engleskog jezika"
         description="Bilo da kreneš od nule ili usavršavaš ono što već znaš — imamo program prilagođen tvom nivou, tempu i ciljevima."
+        image="/cities/study.jpg"
       />
       <CoursesDetail />
       <Formats />
       <LevelGuide />
+      <Destinations />
       <Pricing />
       <Faq />
       <CtaBand />

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Check, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Check, ArrowRight, MapPin } from "lucide-react";
 import DE from "country-flag-icons/react/3x2/DE";
 import GB from "country-flag-icons/react/3x2/GB";
 import US from "country-flag-icons/react/3x2/US";
@@ -14,6 +15,8 @@ type Lang = {
   flags: (typeof DE)[];
   accent: "primary" | "secondary";
   badge: string;
+  image: string;
+  destinations: string;
   levels: string[];
   intro: string;
   teacher: string;
@@ -29,6 +32,8 @@ const langs: Lang[] = [
     flags: [DE],
     accent: "primary",
     badge: "Naš glavni program",
+    image: "/cities/berlin.jpg",
+    destinations: "Berlin · Beč · Cirih",
     levels: ["A1", "A2", "B1", "B2", "C1", "C2"],
     intro:
       "Učiš nemački sistematično — od prvih reči do tečnog izražavanja — kroz razgovor i stvarne situacije. Poseban fokus na pripremu za zvanične ispite i nemački za posao i život u inostranstvu.",
@@ -54,6 +59,8 @@ const langs: Lang[] = [
     flags: [GB, US],
     accent: "secondary",
     badge: "Od početnog do naprednog",
+    image: "/cities/london.jpg",
+    destinations: "London · Njujork · Dablin",
     levels: ["A1", "A2", "B1", "B2", "C1", "C2"],
     intro:
       "Engleski koji odmah koristiš — kroz konverzaciju, čitanje i stvarne situacije. Priprema za međunarodne ispite, poslovni engleski i samopouzdano sporazumevanje u svakoj prilici.",
@@ -87,15 +94,32 @@ export function CoursesDetail() {
                 id={l.id}
                 className="grid scroll-mt-28 overflow-hidden rounded-3xl shadow-card ring-1 ring-ink/5 lg:grid-cols-[0.92fr_1.3fr]"
               >
-                {/* LEVO — tamna identity tabla */}
-                <div className="relative overflow-hidden bg-ink p-8 sm:p-10">
+                {/* LEVO — tamna identity tabla sa gradom u pozadini */}
+                <div className="group relative overflow-hidden bg-ink p-8 sm:p-10">
+                  {/* grad */}
+                  <Image
+                    src={l.image}
+                    alt={l.destinations}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 480px"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* duoton akcenat */}
                   <div
                     className={cn(
-                      "pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full blur-3xl",
-                      isPrimary ? "bg-primary/25" : "bg-secondary/25"
+                      "absolute inset-0 mix-blend-multiply",
+                      isPrimary ? "bg-primary/35" : "bg-secondary/45"
                     )}
                   />
+                  {/* zatamnjenje za citljivost */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/55" />
+
                   <div className="relative flex h-full flex-col">
+                    <div className="mb-6 inline-flex items-center gap-1.5 self-start rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/90 ring-1 ring-white/15 backdrop-blur">
+                      <MapPin className="h-3.5 w-3.5" />
+                      {l.destinations}
+                    </div>
+
                     <span
                       className={cn(
                         "text-xs font-semibold uppercase tracking-wider",

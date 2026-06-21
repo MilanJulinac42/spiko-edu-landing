@@ -19,6 +19,7 @@ export default function ONamaPage() {
         eyebrow="O nama"
         title="Škola u kojoj zaista progovoriš"
         description="Naša misija je jednostavna — da govoriš samopouzdano, a ne samo da znaš pravila. Evo kako to postižemo."
+        image="/cities/onama.jpg"
       />
       <Team />
       <Methodology />

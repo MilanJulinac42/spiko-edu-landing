@@ -16,6 +16,7 @@ export default function KontaktPage() {
         title="Hajde da se upoznamo"
         description="Ostavi podatke i javljamo ti se u roku od 24h da dogovorimo termin besplatnog probnog časa."
         waveFill="fill-surface"
+        image="/cities/kontakt.jpg"
       />
       <Contact />
     </>

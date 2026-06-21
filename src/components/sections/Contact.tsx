@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -26,7 +27,15 @@ export function Contact() {
           <div className="grid lg:grid-cols-2">
             {/* leva strana */}
             <div className="relative overflow-hidden p-8 sm:p-12">
-              <div className="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-primary/20 blur-3xl" />
+              <Image
+                src="/cities/study.jpg"
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 600px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-primary/25 mix-blend-multiply" />
+              <div className="absolute inset-0 bg-ink/85" />
               <div className="relative">
                 <span className="inline-block rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-primary-light">
                   Upis u toku
