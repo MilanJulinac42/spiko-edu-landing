@@ -2,7 +2,7 @@ import { Check } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { Reveal } from "@/components/ui/Reveal";
+import { TiltCard } from "@/components/ui/TiltCard";
 import { cn } from "@/lib/utils";
 
 const plans = [
@@ -50,7 +50,7 @@ const plans = [
 
 export function Pricing() {
   return (
-    <Section id="cenovnik" className="bg-white py-20 sm:py-28">
+    <Section id="cenovnik" className="scroll-mt-24 bg-surface py-20 sm:py-28">
       <Container>
         <SectionHeading
           eyebrow="Cenovnik"
@@ -58,12 +58,13 @@ export function Pricing() {
           description="Izaberi format koji ti odgovara. Tačnu cenu i termin dogovaramo na besplatnom probnom času."
         />
 
-        <Reveal stagger className="mt-14 grid items-stretch gap-8 lg:grid-cols-3">
-          {plans.map((p) => (
-            <article
+        <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-3">
+          {plans.map((p, idx) => (
+            <TiltCard
               key={p.name}
+              index={idx}
               className={cn(
-                "relative flex flex-col rounded-3xl p-8 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card",
+                "relative flex flex-col rounded-3xl p-8 shadow-soft hover:shadow-card",
                 p.featured
                   ? "bg-ink text-white ring-2 ring-primary"
                   : "border border-ink/5 bg-white text-ink"
@@ -125,9 +126,9 @@ export function Pricing() {
               >
                 Zatraži ponudu
               </Button>
-            </article>
+            </TiltCard>
           ))}
-        </Reveal>
+        </div>
 
         <p className="mt-8 text-center text-sm text-muted">
           * Prikazane cene su okvirne (primer). Konačnu ponudu prilagođavamo nivou,

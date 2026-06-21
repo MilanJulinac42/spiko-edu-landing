@@ -92,7 +92,19 @@ h6 {
   }
 }
 
-/* Scroll-reveal i page-transition — samo kada korisnik ne trazi smanjenu animaciju */
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll-reveal i page-transition — samo kada korisnik ne trazi smanjenu animaciju.
+   Reveal koristi ANIMACIJU (ne transition) da ne bi prepisao hover transition na karticama. */
 @media (prefers-reduced-motion: no-preference) {
   .page-enter {
     animation: page-enter 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -100,49 +112,150 @@ h6 {
 
   .reveal {
     opacity: 0;
-    transform: translateY(26px);
-    transition:
-      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    transition-delay: var(--reveal-delay, 0s);
-    will-change: opacity, transform;
   }
   .reveal.is-visible {
-    opacity: 1;
-    transform: none;
+    animation: reveal-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--reveal-delay, 0s);
   }
 
   .reveal-group > * {
     opacity: 0;
-    transform: translateY(26px);
-    transition:
-      opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .reveal-group.is-visible > * {
-    opacity: 1;
-    transform: none;
+    animation: reveal-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
   .reveal-group.is-visible > *:nth-child(1) {
-    transition-delay: 0.05s;
+    animation-delay: 0.05s;
   }
   .reveal-group.is-visible > *:nth-child(2) {
-    transition-delay: 0.13s;
+    animation-delay: 0.13s;
   }
   .reveal-group.is-visible > *:nth-child(3) {
-    transition-delay: 0.21s;
+    animation-delay: 0.21s;
   }
   .reveal-group.is-visible > *:nth-child(4) {
-    transition-delay: 0.29s;
+    animation-delay: 0.29s;
   }
   .reveal-group.is-visible > *:nth-child(5) {
-    transition-delay: 0.37s;
+    animation-delay: 0.37s;
   }
   .reveal-group.is-visible > *:nth-child(6) {
-    transition-delay: 0.45s;
+    animation-delay: 0.45s;
   }
   .reveal-group.is-visible > *:nth-child(n + 7) {
-    transition-delay: 0.5s;
+    animation-delay: 0.5s;
+  }
+}
+
+/* Tilt kartice + spotlight */
+.tilt-inner {
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.tilt-glow {
+  position: relative;
+  isolation: isolate;
+}
+.tilt-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(134, 196, 64, 0.18),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 1;
+}
+.tilt-glow:hover::after {
+  opacity: 1;
+}
+
+/* Reveal pojedinacne kartice (TiltCard) */
+.reveal-item {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-item {
+    opacity: 0;
+  }
+  .reveal-item.is-visible {
+    animation: reveal-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+/* Rotirajuca rec u heroju */
+@media (prefers-reduced-motion: no-preference) {
+  .rotating-word {
+    animation: word-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5em) rotate(2deg);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+    filter: blur(0);
+  }
+}
+
+/* Beskonacni marquee */
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+.marquee-track:hover .marquee {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Filmsko zrno */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+html.lenis {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none !important;
   }
 }
 

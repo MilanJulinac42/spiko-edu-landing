@@ -34,45 +34,53 @@ export function Methodology() {
   return (
     <Section
       id="metodologija"
-      className="relative overflow-hidden bg-white py-20 sm:py-28"
+      className="relative scroll-mt-24 overflow-hidden bg-white py-20 sm:py-28"
     >
       <Container>
-        <SectionHeading
-          eyebrow="Naša metodologija"
-          title="Metod koji te zaista nauči da govoriš"
-          description="Zaboravi bubanje. Kod nas učiš jezik onako kako se zaista koristi — u razgovoru."
-        />
-
-        <Reveal stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((s, i) => (
-            <div
-              key={s.num}
-              className="relative rounded-3xl bg-surface p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
-            >
-              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary-dark">
-                <s.icon className="h-6 w-6" strokeWidth={2} aria-hidden />
-              </span>
-              <span className="absolute right-6 top-6 font-display text-3xl font-extrabold text-primary/15">
-                {s.num}
-              </span>
-              <h3 className="mt-4 text-lg font-bold text-ink">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{s.text}</p>
-              {i < steps.length - 1 && (
-                <span className="absolute -right-3 top-1/2 hidden h-6 w-6 -translate-y-1/2 place-items-center text-primary lg:grid">
-                  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none">
-                    <path
-                      d="M5 12h14M13 6l6 6-6 6"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-              )}
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          {/* sticky levo */}
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <SectionHeading
+              align="left"
+              eyebrow="Naša metodologija"
+              title="Metod koji te zaista nauči da govoriš"
+              description="Zaboravi bubanje. Kod nas učiš jezik onako kako se zaista koristi — u razgovoru."
+            />
+            <div className="mt-8 hidden rounded-3xl bg-ink p-8 text-white shadow-card lg:block">
+              <p className="font-display text-xl font-semibold leading-snug">
+                „Govoriš od prvog časa.”
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-white/70">
+                Časovi su vođeni kroz stvarne situacije — naručuješ kafu, vodiš
+                intervju, pričaš o planovima. Gramatika dolazi prirodno, kroz
+                upotrebu.
+              </p>
             </div>
-          ))}
-        </Reveal>
+          </div>
+
+          {/* koraci — timeline desno */}
+          <ol className="relative space-y-6 border-l-2 border-dashed border-primary/25 pl-10">
+            {steps.map((s, i) => (
+              <Reveal
+                as="li"
+                key={s.num}
+                delay={`${i * 0.08}s`}
+                className="relative"
+              >
+                <span className="absolute -left-10 top-6 grid h-11 w-11 -translate-x-1/2 place-items-center rounded-full bg-primary text-ink shadow-soft ring-4 ring-white">
+                  <s.icon className="h-5 w-5" strokeWidth={2.2} aria-hidden />
+                </span>
+                <div className="group rounded-2xl border border-ink/5 bg-surface p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
+                  <span className="font-display text-sm font-bold text-primary-dark">
+                    Korak {s.num}
+                  </span>
+                  <h3 className="mt-1 text-lg font-bold text-ink">{s.title}</h3>
+                  <p className="mt-2 leading-relaxed text-muted">{s.text}</p>
+                </div>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
       </Container>
     </Section>
   );

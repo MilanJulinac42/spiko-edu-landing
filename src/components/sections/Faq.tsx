@@ -37,7 +37,7 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <Section id="faq" className="bg-white py-20 sm:py-28">
+    <Section id="faq" className="scroll-mt-24 bg-white py-20 sm:py-28">
       <Container className="max-w-3xl">
         <SectionHeading
           eyebrow="Česta pitanja"

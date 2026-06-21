@@ -6,19 +6,19 @@ const cols = [
   {
     title: "Kursevi",
     links: [
-      { href: "/kursevi", label: "Nemački jezik" },
-      { href: "/kursevi", label: "Engleski jezik" },
-      { href: "/cenovnik", label: "Individualna nastava" },
-      { href: "/cenovnik", label: "Grupni časovi" },
+      { href: "/kursevi#nemacki", label: "Nemački jezik" },
+      { href: "/kursevi#engleski", label: "Engleski jezik" },
+      { href: "/kursevi#cenovnik", label: "Cenovnik" },
+      { href: "/kursevi#faq", label: "Česta pitanja" },
     ],
   },
   {
     title: "Škola",
     links: [
       { href: "/o-nama", label: "O nama" },
-      { href: "/o-nama", label: "Metodologija" },
-      { href: "/cenovnik", label: "Cenovnik" },
-      { href: "/cenovnik", label: "Česta pitanja" },
+      { href: "/o-nama#tim", label: "Naš tim" },
+      { href: "/o-nama#metodologija", label: "Metodologija" },
+      { href: "/kontakt", label: "Kontakt" },
     ],
   },
 ];

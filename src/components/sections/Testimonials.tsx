@@ -1,6 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
-import { Reveal } from "@/components/ui/Reveal";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const testimonials = [
   {
@@ -36,11 +36,12 @@ export function Testimonials() {
           description="Ne moraš da nam veruješ na reč — evo šta kažu naši polaznici."
         />
 
-        <Reveal stagger className="mt-14 grid gap-6 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <figure
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {testimonials.map((t, idx) => (
+            <TiltCard
               key={t.name}
-              className="flex flex-col rounded-3xl border border-ink/5 bg-surface p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
+              index={idx}
+              className="flex flex-col rounded-3xl border border-ink/5 bg-surface p-7 shadow-soft hover:shadow-card"
             >
               <div className="flex gap-1 text-primary">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -63,9 +64,9 @@ export function Testimonials() {
                   <p className="text-sm text-muted">{t.role}</p>
                 </div>
               </figcaption>
-            </figure>
+            </TiltCard>
           ))}
-        </Reveal>
+        </div>
       </Container>
     </Section>
   );

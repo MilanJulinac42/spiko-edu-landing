@@ -1,25 +1,31 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { Courses } from "@/components/sections/Courses";
-import { Methodology } from "@/components/sections/Methodology";
+import { CoursesDetail } from "@/components/sections/CoursesDetail";
+import { Formats } from "@/components/sections/Formats";
+import { LevelGuide } from "@/components/sections/LevelGuide";
+import { Pricing } from "@/components/sections/Pricing";
+import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
 
 export const metadata: Metadata = {
-  title: "Kursevi",
+  title: "Kursevi i cene",
   description:
-    "Kursevi nemačkog i engleskog jezika u Spiko Edu — od početnog do naprednog nivoa, grupno i individualno, sa pripremom za Goethe, ÖSD, IELTS i Cambridge.",
+    "Kursevi nemačkog i engleskog jezika u Spiko Edu — nivoi A1–C2, grupna, individualna i intenzivna nastava, priprema za Goethe, ÖSD, IELTS i Cambridge. Transparentne cene.",
 };
 
 export default function KurseviPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Naši kursevi"
+        eyebrow="Kursevi i cene"
         title="Kursevi nemačkog i engleskog jezika"
-        description="Bilo da kreneš od nule ili usavršavaš ono što već znaš — imamo program prilagođen tvom nivou i ciljevima."
+        description="Bilo da kreneš od nule ili usavršavaš ono što već znaš — imamo program prilagođen tvom nivou, tempu i ciljevima."
       />
-      <Courses />
-      <Methodology />
+      <CoursesDetail />
+      <Formats />
+      <LevelGuide />
+      <Pricing />
+      <Faq />
       <CtaBand />
     </>
   );

@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { href: "/kursevi", label: "Kursevi" },
-  { href: "/cenovnik", label: "Cenovnik" },
   { href: "/o-nama", label: "O nama" },
   { href: "/kontakt", label: "Kontakt" },
 ];

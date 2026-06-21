@@ -1,7 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { Reveal } from "@/components/ui/Reveal";
+import { TiltCard } from "@/components/ui/TiltCard";
 import GB from "country-flag-icons/react/3x2/GB";
 import US from "country-flag-icons/react/3x2/US";
 import DE from "country-flag-icons/react/3x2/DE";
@@ -45,13 +45,14 @@ export function Courses() {
           description="Bilo da kreneš od nule ili usavršavaš ono što već znaš — imamo program za tebe."
         />
 
-        <Reveal stagger className="mt-14 grid gap-8 md:grid-cols-2">
-          {courses.map((c) => {
+        <div className="mt-14 grid gap-8 md:grid-cols-2">
+          {courses.map((c, idx) => {
             const isPrimary = c.accent === "primary";
             return (
-              <article
+              <TiltCard
                 key={c.name}
-                className="group relative overflow-hidden rounded-3xl border border-ink/5 bg-white p-8 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
+                index={idx}
+                className="group relative overflow-hidden rounded-3xl border border-ink/5 bg-white p-8 shadow-soft hover:shadow-card"
               >
                 <div
                   className={`absolute -right-10 -top-10 h-32 w-32 rounded-full blur-2xl transition-opacity group-hover:opacity-100 ${
@@ -111,17 +112,17 @@ export function Courses() {
                   </ul>
 
                   <Button
-                    href="/kontakt"
+                    href="/kursevi"
                     variant={isPrimary ? "primary" : "secondary"}
                     className="mt-8 w-full"
                   >
                     Saznaj više
                   </Button>
                 </div>
-              </article>
+              </TiltCard>
             );
           })}
-        </Reveal>
+        </div>
       </Container>
     </Section>
   );

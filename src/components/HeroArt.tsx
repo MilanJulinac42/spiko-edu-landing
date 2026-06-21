@@ -15,11 +15,9 @@ function Globe() {
         </clipPath>
       </defs>
 
-      {/* okean */}
       <circle cx="100" cy="100" r="92" fill="url(#ocean)" />
 
       <g clipPath="url(#globe-clip)">
-        {/* kontinenti */}
         <g fill="#86C440">
           <path d="M44 58c12-10 30-12 40-4s4 22-6 28-10 18-24 16-22-12-20-26 2-8 10-14Z" />
           <path d="M120 40c14-4 30 2 32 14s-10 18-6 30-8 22-20 18-14-16-10-28-10-8-12-20 6-10 16-14Z" />
@@ -30,14 +28,7 @@ function Globe() {
           <path d="M48 64c10-6 22-6 28 0s0 14-8 18-8 12-18 10-14-10-12-20 2-4 10-8Z" />
           <path d="M76 122c8-4 18-2 22 4s-2 14-10 18-6 12-16 8-10-12-6-22 2-4 6-6Z" />
         </g>
-
-        {/* meridijani / paralele */}
-        <g
-          fill="none"
-          stroke="#ffffff"
-          strokeOpacity="0.28"
-          strokeWidth="1.2"
-        >
+        <g fill="none" stroke="#ffffff" strokeOpacity="0.28" strokeWidth="1.2">
           <line x1="8" y1="100" x2="192" y2="100" />
           <line x1="100" y1="8" x2="100" y2="192" />
           <ellipse cx="100" cy="100" rx="46" ry="92" />
@@ -47,16 +38,7 @@ function Globe() {
         </g>
       </g>
 
-      {/* obod + odsjaj */}
-      <circle
-        cx="100"
-        cy="100"
-        r="92"
-        fill="none"
-        stroke="#ffffff"
-        strokeOpacity="0.18"
-        strokeWidth="2"
-      />
+      <circle cx="100" cy="100" r="92" fill="none" stroke="#ffffff" strokeOpacity="0.18" strokeWidth="2" />
       <ellipse cx="74" cy="64" rx="26" ry="16" fill="#ffffff" opacity="0.12" />
     </svg>
   );
@@ -66,14 +48,18 @@ function Chip({
   children,
   className = "",
   delay = "0s",
+  tone = "white",
 }: {
   children: React.ReactNode;
   className?: string;
   delay?: string;
+  tone?: "white" | "primary";
 }) {
   return (
     <div
-      className={`absolute flex animate-float items-center gap-2 rounded-2xl bg-white px-4 py-2.5 text-sm font-semibold text-ink shadow-card ring-1 ring-black/5 ${className}`}
+      className={`absolute flex animate-float items-center gap-2 rounded-2xl px-4 py-2.5 text-sm font-semibold shadow-card ring-1 ring-black/5 ${
+        tone === "primary" ? "bg-primary text-ink" : "bg-white text-ink"
+      } ${className}`}
       style={{ animationDelay: delay }}
     >
       {children}
@@ -107,7 +93,7 @@ export function HeroArt() {
         Guten Tag!
       </Chip>
 
-      <Chip className="-right-2 top-[30%] bg-primary text-ink" delay="1.4s">
+      <Chip className="-right-2 top-[30%]" delay="1.4s" tone="primary">
         Hallo! <span className="text-base">👋</span>
       </Chip>
 

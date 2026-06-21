@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -76,6 +77,7 @@ export default function RootLayout({
       className={`${poppins.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-ink">
+        <SmoothScroll />
         <ScrollProgress />
         <Navbar />
         <main className="flex-1">{children}</main>

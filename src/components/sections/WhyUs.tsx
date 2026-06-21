@@ -9,7 +9,7 @@ import {
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { WaveDivider } from "@/components/ui/WaveDivider";
-import { Reveal } from "@/components/ui/Reveal";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const reasons = [
   {
@@ -58,11 +58,12 @@ export function WhyUs({ waveFill = "fill-white" }: { waveFill?: string }) {
           description="Pažljivo smo osmislili svaki detalj iskustva učenja — od veličine grupe do materijala."
         />
 
-        <Reveal stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {reasons.map((r) => (
-            <div
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {reasons.map((r, i) => (
+            <TiltCard
               key={r.title}
-              className="group rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-white/10"
+              index={i}
+              className="group rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur hover:border-primary/40 hover:bg-white/10"
             >
               <span className="grid h-14 w-14 place-items-center rounded-2xl bg-white/10 text-primary transition-transform group-hover:scale-110">
                 <r.icon className="h-7 w-7" strokeWidth={2} aria-hidden />
@@ -71,9 +72,9 @@ export function WhyUs({ waveFill = "fill-white" }: { waveFill?: string }) {
               <p className="mt-2 text-sm leading-relaxed text-white/60">
                 {r.text}
               </p>
-            </div>
+            </TiltCard>
           ))}
-        </Reveal>
+        </div>
       </Container>
 
       <WaveDivider variant="curve" position="bottom" fillClassName={waveFill} />
