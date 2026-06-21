@@ -11,13 +11,41 @@ import { Reveal } from "@/components/ui/Reveal";
 const inputClass =
   "w-full rounded-xl border border-ink/10 bg-white px-4 py-3 text-ink placeholder:text-muted/60 focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/15";
 
-export function Contact() {
-  const [sent, setSent] = useState(false);
+const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+export function Contact() {
+  const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">(
+    "idle"
+  );
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Static za sada — kasnije se kači na backend / CMS.
-    setSent(true);
+    if (!ACCESS_KEY) {
+      setStatus("error");
+      return;
+    }
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    data.append("access_key", ACCESS_KEY);
+    data.append("subject", "Nova prijava sa sajta — Spiko Edu");
+    data.append("from_name", "Spiko Edu sajt");
+
+    setStatus("loading");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data,
+      });
+      const json = await res.json();
+      if (json.success) {
+        setStatus("sent");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -75,7 +103,7 @@ export function Contact() {
 
             {/* desna strana — forma */}
             <div className="bg-white p-8 sm:p-12">
-              {sent ? (
+              {status === "sent" ? (
                 <div className="flex h-full flex-col items-center justify-center text-center">
                   <span className="grid h-16 w-16 place-items-center rounded-full bg-primary/15 text-4xl">
                     🎉
@@ -89,6 +117,15 @@ export function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* honeypot protiv spama */}
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    className="hidden"
+                    aria-hidden
+                  />
                   <div>
                     <label
                       htmlFor="ime"
@@ -176,9 +213,25 @@ export function Contact() {
                       placeholder="Reci nam nešto o svojim ciljevima…"
                     />
                   </div>
-                  <Button size="lg" className="w-full">
-                    Pošalji prijavu
+                  <Button
+                    size="lg"
+                    className="w-full"
+                    disabled={status === "loading"}
+                  >
+                    {status === "loading" ? "Šaljem…" : "Pošalji prijavu"}
                   </Button>
+                  {status === "error" && (
+                    <p className="text-center text-sm font-medium text-red-600">
+                      Nešto nije u redu. Pokušaj ponovo ili nam piši na{" "}
+                      <a
+                        href="mailto:spikoedu@gmail.com"
+                        className="underline"
+                      >
+                        spikoedu@gmail.com
+                      </a>
+                      .
+                    </p>
+                  )}
                   <p className="text-center text-xs text-muted">
                     Slanjem prihvataš našu{" "}
                     <Link

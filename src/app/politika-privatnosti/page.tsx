@@ -30,7 +30,7 @@ export default function PrivacyPage() {
         <li>Adresa: <em>popuniti</em></li>
         <li>Matični broj / PIB: <em>popuniti</em></li>
         <li>
-          Email: <a href="mailto:info@spikoedu.rs">info@spikoedu.rs</a>
+          Email: <a href="mailto:spikoedu@gmail.com">spikoedu@gmail.com</a>
         </li>
       </ul>
 
@@ -116,7 +116,7 @@ export default function PrivacyPage() {
       </ul>
       <p>
         Za ostvarivanje prava piši nam na{" "}
-        <a href="mailto:info@spikoedu.rs">info@spikoedu.rs</a> i odgovorićemo ti u
+        <a href="mailto:spikoedu@gmail.com">spikoedu@gmail.com</a> i odgovorićemo ti u
         zakonskom roku.
       </p>
 
@@ -147,7 +147,7 @@ export default function PrivacyPage() {
       <h2>11. Kontakt</h2>
       <p>
         Za sva pitanja u vezi sa privatnošću i zaštitom podataka, kontaktiraj nas
-        na <a href="mailto:info@spikoedu.rs">info@spikoedu.rs</a>.
+        na <a href="mailto:spikoedu@gmail.com">spikoedu@gmail.com</a>.
       </p>
     </LegalPage>
   );

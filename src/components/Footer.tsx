@@ -63,10 +63,10 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-white/70">
               <li>
                 <a
-                  href="mailto:info@spikoedu.rs"
+                  href="mailto:spikoedu@gmail.com"
                   className="transition-colors hover:text-primary"
                 >
-                  info@spikoedu.rs
+                  spikoedu@gmail.com
                 </a>
               </li>
               <li>

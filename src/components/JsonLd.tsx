@@ -7,7 +7,7 @@ const data = {
   description:
     "Škola jezika za nemački i engleski — grupni i individualni časovi, priprema za Goethe, ÖSD, IELTS i Cambridge ispite.",
   url: SITE_URL,
-  email: "info@spikoedu.rs",
+  email: "spikoedu@gmail.com",
   telephone: "+381600000000",
   address: {
     "@type": "PostalAddress",

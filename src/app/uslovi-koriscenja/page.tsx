@@ -55,7 +55,7 @@ export default function TermsPage() {
       <h2>Kontakt</h2>
       <p>
         Za sva pitanja u vezi sa uslovima korišćenja, piši nam na{" "}
-        <a href="mailto:info@spikoedu.rs">info@spikoedu.rs</a>.
+        <a href="mailto:spikoedu@gmail.com">spikoedu@gmail.com</a>.
       </p>
     </LegalPage>
   );
