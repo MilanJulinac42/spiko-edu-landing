@@ -57,13 +57,6 @@ export default function TermsPage() {
         Za sva pitanja u vezi sa uslovima korišćenja, piši nam na{" "}
         <a href="mailto:info@spikoedu.rs">info@spikoedu.rs</a>.
       </p>
-
-      <p>
-        <em>
-          Napomena: ovaj dokument je opšti predložak i pre objave ga treba
-          uskladiti sa stvarnim poslovanjem škole i pravno proveriti.
-        </em>
-      </p>
     </LegalPage>
   );
 }
