@@ -1,4 +1,4 @@
-import { Users, User, Zap } from "lucide-react";
+import { Users, UserPlus, User, Zap } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { TiltCard } from "@/components/ui/TiltCard";
@@ -7,9 +7,16 @@ const formats = [
   {
     icon: Users,
     title: "Grupna nastava",
-    size: "do 6 polaznika",
+    size: "do 10 polaznika",
     text: "Učenje u maloj grupi uz dovoljno prostora za svakoga. Idealno za motivaciju i vežbu konverzacije.",
     points: ["2 časa nedeljno", "Najbolji odnos cene i kvaliteta", "Dinamika grupe"],
+  },
+  {
+    icon: UserPlus,
+    title: "Poluindividualna nastava",
+    size: "2–3 polaznika",
+    text: "Učenje u paru ili maloj grupici — pažnja skoro kao 1-na-1, uz povoljniju cenu.",
+    points: ["Više pažnje po polazniku", "Fleksibilni termini", "Povoljnije od individualne"],
   },
   {
     icon: User,
@@ -38,7 +45,7 @@ export function Formats() {
           description="Isti kvalitet u svakom formatu — razlika je u tempu, veličini grupe i ceni."
         />
 
-        <div className="mt-14 grid items-stretch gap-6 lg:grid-cols-3">
+        <div className="mt-14 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {formats.map((f, i) => (
             <TiltCard
               key={f.title}

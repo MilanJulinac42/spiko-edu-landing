@@ -52,7 +52,7 @@ export default function PrivacyPage() {
       <h2>3. Svrhe i osnov obrade</h2>
       <ul>
         <li>
-          <strong>Odgovor na upit i zakazivanje probnog časa</strong> — na osnovu
+          <strong>Odgovor na upit i zakazivanje konsultacija</strong> — na osnovu
           tvog pristanka, odnosno radnji preduzetih na tvoj zahtev pre zaključenja
           ugovora.
         </li>

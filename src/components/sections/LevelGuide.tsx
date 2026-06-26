@@ -18,7 +18,7 @@ export function LevelGuide() {
         <SectionHeading
           eyebrow="Nivoi znanja (CEFR)"
           title="Gde si ti? Krećemo odakle god da si"
-          description="Evropski okvir deli znanje na šest nivoa. Na besplatnom probnom času utvrđujemo tvoj i pravimo plan."
+          description="Evropski okvir deli znanje na šest nivoa. Na besplatnim konsultacijama utvrđujemo tvoj nivo i pravimo personalizovani plan rada."
         />
 
         <Reveal stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

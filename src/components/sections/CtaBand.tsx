@@ -6,7 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function CtaBand({
   title = "Spreman/na da progovoriš?",
-  description = "Zakaži besplatan probni čas i uveri se kako izgleda učenje kod nas — bez ikakvih obaveza.",
+  description = "Zakaži besplatne konsultacije i uveri se kako izgleda učenje kod nas — bez ikakvih obaveza.",
   className = "bg-surface",
 }: {
   title?: string;
@@ -33,7 +33,7 @@ export function CtaBand({
             <p className="mx-auto mt-4 max-w-xl text-white/70">{description}</p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button href="/kontakt" size="lg">
-                Zakaži besplatan probni čas
+                Zakaži besplatne konsultacije
               </Button>
               <Button
                 href="/kursevi#cenovnik"

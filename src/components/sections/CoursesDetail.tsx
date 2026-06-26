@@ -1,6 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Check, ArrowRight, MapPin } from "lucide-react";
+import {
+  ArrowRight,
+  MapPin,
+  Users,
+  MessagesSquare,
+  BookOpen,
+  LineChart,
+  Briefcase,
+  Award,
+  type LucideIcon,
+} from "lucide-react";
 import DE from "country-flag-icons/react/3x2/DE";
 import GB from "country-flag-icons/react/3x2/GB";
 import US from "country-flag-icons/react/3x2/US";
@@ -20,7 +30,8 @@ type Lang = {
   levels: string[];
   intro: string;
   teacher: string;
-  gives: string[];
+  teacherPhoto: string;
+  gives: { icon: LucideIcon; text: string }[];
   exams: string[];
   audience: string[];
 };
@@ -34,17 +45,18 @@ const langs: Lang[] = [
     badge: "Naš glavni program",
     image: "/cities/berlin.jpg",
     destinations: "Berlin · Beč · Cirih",
-    levels: ["A1", "A2", "B1", "B2", "C1", "C2"],
+    levels: ["A1", "A2", "B1", "B2", "C1"],
     intro:
       "Učiš nemački sistematično — od prvih reči do tečnog izražavanja — kroz razgovor i stvarne situacije. Poseban fokus na pripremu za zvanične ispite i nemački za posao i život u inostranstvu.",
-    teacher: "Ema Alidjukić",
+    teacher: "Ema Aliđukić",
+    teacherPhoto: "/team/ema.jpg",
     gives: [
-      "Mali grupni (do 6) i individualni časovi",
-      "Konverzacija od prvog časa",
-      "Svi udžbenici i materijali uključeni",
-      "Redovne provere znanja i feedback",
+      { icon: Users, text: "Mali grupni (do 10) i individualni časovi" },
+      { icon: MessagesSquare, text: "Konverzacija od prvog časa" },
+      { icon: BookOpen, text: "Svi udžbenici i materijali uključeni" },
+      { icon: LineChart, text: "Redovni feedback i praćenje napretka" },
     ],
-    exams: ["Goethe-Zertifikat", "ÖSD", "TestDaF", "telc"],
+    exams: ["Goethe-Zertifikat", "ÖSD", "telc"],
     audience: [
       "Početnici",
       "Učenici i studenti",
@@ -65,11 +77,12 @@ const langs: Lang[] = [
     intro:
       "Engleski koji odmah koristiš — kroz konverzaciju, čitanje i stvarne situacije. Priprema za međunarodne ispite, poslovni engleski i samopouzdano sporazumevanje u svakoj prilici.",
     teacher: "Jana Torbica",
+    teacherPhoto: "/team/jana.jpg",
     gives: [
-      "Grupna i individualna nastava",
-      "Konverzacija i rad na izgovoru",
-      "Poslovni engleski",
-      "Priprema za međunarodne ispite",
+      { icon: Users, text: "Grupna i individualna nastava" },
+      { icon: MessagesSquare, text: "Konverzacija i rad na izgovoru" },
+      { icon: Briefcase, text: "Poslovni engleski" },
+      { icon: Award, text: "Priprema za međunarodne ispite" },
     ],
     exams: ["Cambridge", "IELTS", "TOEFL"],
     audience: [
@@ -92,8 +105,23 @@ export function CoursesDetail() {
             <Reveal key={l.id}>
               <div
                 id={l.id}
-                className="grid scroll-mt-28 overflow-hidden rounded-3xl shadow-card ring-1 ring-ink/5 lg:grid-cols-[0.92fr_1.3fr]"
+                className="relative grid scroll-mt-28 overflow-hidden rounded-3xl shadow-card ring-1 ring-ink/5 lg:grid-cols-[0.92fr_1.3fr]"
               >
+                {/* corner ribbon */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute right-0 top-0 z-30 h-24 w-24 overflow-hidden rounded-tr-3xl"
+                >
+                  <div
+                    className={cn(
+                      "absolute right-[-42px] top-[14px] w-[150px] rotate-45 py-1 text-center text-[11px] font-bold uppercase tracking-[0.15em] shadow-md",
+                      isPrimary ? "bg-primary text-ink" : "bg-secondary text-white"
+                    )}
+                  >
+                    {isPrimary ? "Nemački" : "Engleski"}
+                  </div>
+                </div>
+
                 {/* LEVO — tamna identity tabla sa gradom u pozadini */}
                 <div className="group relative overflow-hidden bg-ink p-8 sm:p-10">
                   {/* grad */}
@@ -161,18 +189,29 @@ export function CoursesDetail() {
 
                     <p className="mt-6 leading-relaxed text-white/70">{l.intro}</p>
 
-                    <p className="mt-4 text-sm text-white/60">
-                      Predaje:{" "}
-                      <Link
-                        href="/o-nama#tim"
-                        className={cn(
-                          "font-semibold underline-offset-2 hover:underline",
-                          isPrimary ? "text-primary-light" : "text-secondary-light"
-                        )}
-                      >
-                        {l.teacher}
-                      </Link>
-                    </p>
+                    <Link
+                      href="/o-nama#tim"
+                      className="group/teacher mt-5 inline-flex items-center gap-3"
+                    >
+                      <Image
+                        src={l.teacherPhoto}
+                        alt={l.teacher}
+                        width={44}
+                        height={44}
+                        className="h-11 w-11 rounded-full object-cover object-top ring-2 ring-white/25"
+                      />
+                      <span className="text-sm leading-tight">
+                        <span className="block text-white/55">Predaje</span>
+                        <span
+                          className={cn(
+                            "font-semibold underline-offset-2 group-hover/teacher:underline",
+                            isPrimary ? "text-primary-light" : "text-secondary-light"
+                          )}
+                        >
+                          {l.teacher}
+                        </span>
+                      </span>
+                    </Link>
 
                     <div className="mt-auto flex flex-col gap-3 pt-8 sm:flex-row">
                       <Link
@@ -198,68 +237,62 @@ export function CoursesDetail() {
                 </div>
 
                 {/* DESNO — detalji */}
-                <div className="bg-white p-8 sm:p-10">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-ink/50">
+                <div className="relative flex flex-col justify-center overflow-hidden bg-white p-8 sm:p-10 lg:p-12">
+                  {/* suptilan tackasti pattern */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(120%_120%_at_100%_0%,#000,transparent_70%)]"
+                    style={{
+                      backgroundImage:
+                        "radial-gradient(rgba(14,22,34,0.07) 1px, transparent 1px)",
+                      backgroundSize: "18px 18px",
+                    }}
+                  />
+                  {/* meki akcentni sjaj */}
+                  <div
+                    className={cn(
+                      "pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full blur-3xl",
+                      isPrimary ? "bg-primary/10" : "bg-secondary/10"
+                    )}
+                  />
+
+                  <div className="relative">
+                  <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-ink/40">
                     Šta dobijaš
                   </h3>
-                  <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                  <ul className="mt-2 divide-y divide-ink/[0.07]">
                     {l.gives.map((g) => (
-                      <li
-                        key={g}
-                        className="flex items-start gap-3 text-sm text-ink/80"
-                      >
+                      <li key={g.text} className="flex items-center gap-4 py-4">
                         <span
                           className={cn(
-                            "mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full text-white",
-                            isPrimary ? "bg-primary" : "bg-secondary"
+                            "grid h-11 w-11 shrink-0 place-items-center rounded-2xl",
+                            isPrimary
+                              ? "bg-primary/10 text-primary-dark"
+                              : "bg-secondary/10 text-secondary-dark"
                           )}
                         >
-                          <Check className="h-3 w-3" strokeWidth={3} />
+                          <g.icon className="h-5 w-5" strokeWidth={2} aria-hidden />
                         </span>
-                        {g}
+                        <span className="text-[15px] font-medium leading-snug text-ink/85">
+                          {g.text}
+                        </span>
                       </li>
                     ))}
                   </ul>
 
-                  <div className="my-8 h-px bg-ink/5" />
-
-                  <div className="grid gap-8 sm:grid-cols-2">
-                    <div>
-                      <h3 className="text-xs font-bold uppercase tracking-wider text-ink/50">
-                        Priprema za ispite
-                      </h3>
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {l.exams.map((e) => (
-                          <span
-                            key={e}
-                            className="rounded-full border border-ink/10 bg-surface px-3 py-1.5 text-sm font-semibold text-ink/70"
-                          >
-                            {e}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xs font-bold uppercase tracking-wider text-ink/50">
-                        Za koga je
-                      </h3>
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {l.audience.map((a) => (
-                          <span
-                            key={a}
-                            className={cn(
-                              "rounded-full px-3 py-1.5 text-sm font-medium",
-                              isPrimary
-                                ? "bg-primary/10 text-primary-dark"
-                                : "bg-secondary/10 text-secondary-dark"
-                            )}
-                          >
-                            {a}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                  <h3 className="mt-9 text-xs font-bold uppercase tracking-[0.18em] text-ink/40">
+                    Priprema za ispite
+                  </h3>
+                  <div className="mt-4 flex flex-wrap gap-2.5">
+                    {l.exams.map((e) => (
+                      <span
+                        key={e}
+                        className="rounded-full border border-ink/12 px-4 py-2 text-sm font-medium text-ink/70"
+                      >
+                        {e}
+                      </span>
+                    ))}
+                  </div>
                   </div>
                 </div>
               </div>

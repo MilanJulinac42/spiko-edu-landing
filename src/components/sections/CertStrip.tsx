@@ -6,7 +6,6 @@ import { Section } from "@/components/ui/Section";
 const items = [
   { flag: DE, label: "Goethe-Zertifikat" },
   { flag: DE, label: "ÖSD" },
-  { flag: DE, label: "TestDaF" },
   { flag: DE, label: "telc" },
   { flag: GB, label: "Cambridge" },
   { flag: GB, label: "IELTS" },

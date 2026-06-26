@@ -16,7 +16,7 @@ const courses = [
     image: "/cities/berlin.jpg",
     description:
       "Naš glavni program. Sistematično učenje za školu, posao ili život u inostranstvu, uz pripremu za Goethe i ÖSD.",
-    levels: ["A1", "A2", "B1", "B2", "C1", "C2"],
+    levels: ["A1", "A2", "B1", "B2", "C1"],
     features: [
       "Priprema za Goethe / ÖSD",
       "Nemački za zdravstvene radnike",

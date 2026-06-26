@@ -25,7 +25,7 @@ export default function ONamaPage() {
       <WhyUs waveFill="fill-surface" />
       <CtaBand
         title="Hajde da se upoznamo"
-        description="Dođi na besplatan probni čas i uveri se kako radimo — bez ikakvih obaveza."
+        description="Dođi na besplatne konsultacije i uveri se kako radimo — bez ikakvih obaveza."
       />
     </>
   );

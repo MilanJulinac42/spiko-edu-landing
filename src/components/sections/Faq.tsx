@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const faqs = [
   {
     q: "Kako da znam koji nivo mi odgovara?",
-    a: "Na besplatnom probnom času procenjujemo tvoje trenutno znanje i preporučujemo grupu ili program koji ti najbolje odgovara. Nema pogrešnog početka — krećemo odakle god da si.",
+    a: "Na besplatnim konsultacijama procenjujemo tvoje trenutno znanje i preporučujemo grupu ili program koji ti najbolje odgovara. Nema pogrešnog početka — krećemo odakle god da si.",
   },
   {
     q: "Da li su časovi uživo ili online?",

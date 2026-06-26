@@ -5,8 +5,8 @@ import { WaveDivider } from "@/components/ui/WaveDivider";
 import { EarthGlobe } from "@/components/EarthGlobe";
 
 const stats = [
-  { value: "1200+", label: "Zadovoljnih polaznika" },
-  { value: "15+", label: "Godina iskustva" },
+  { value: "1000+", label: "Zadovoljnih polaznika" },
+  { value: "8", label: "Godina iskustva" },
   { value: "98%", label: "Položenih ispita" },
 ];
 
@@ -49,13 +49,13 @@ export function Hero() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/70 lg:mx-0">
-            U Spiko Edu školi učiš kroz razgovor, od prvog časa. Mali grupni
+            U Spiko školi učiš kroz razgovor, od prvog časa. Mali grupni
             časovi i individualna nastava prilagođeni tvom tempu i ciljevima.
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:items-start lg:justify-start">
             <Button href="/kontakt" variant="primary" size="lg">
-              Zakaži besplatan probni čas
+              Zakaži besplatne konsultacije
             </Button>
             <Button href="/kursevi" variant="outline" size="lg" className="border-white/20 text-white hover:border-primary hover:text-primary-light">
               Pogledaj kurseve

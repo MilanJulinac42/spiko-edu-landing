@@ -15,7 +15,7 @@ const reasons = [
   {
     icon: Users,
     title: "Male grupe",
-    text: "Maksimalno 6 polaznika po grupi — više vremena za svakoga i više prakse.",
+    text: "Maksimalno 10 polaznika po grupi — više vremena za svakoga i više prakse.",
   },
   {
     icon: GraduationCap,

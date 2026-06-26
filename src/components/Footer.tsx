@@ -31,8 +31,8 @@ export function Footer() {
           <div>
             <Logo invert />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
-              Škola jezika za nemački i engleski. Učimo te da govoriš
-              samopouzdano — kroz časove prilagođene baš tebi.
+              Škola stranih jezika. Učimo te da govoriš samopouzdano — kroz
+              časove prilagođene baš tebi.
             </p>
           </div>
 

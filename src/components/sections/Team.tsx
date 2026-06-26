@@ -39,7 +39,7 @@ type Teacher = {
 const teachers: Teacher[] = [
   {
     id: "ema",
-    name: "Ema Alidjukić",
+    name: "Ema Aliđukić",
     instrumental: "Emom",
     role: "Profesorka nemačkog jezika",
     flag: DE,

@@ -69,11 +69,11 @@ export function Contact() {
                   Upis u toku
                 </span>
                 <h2 className="mt-5 text-3xl font-bold leading-tight text-white sm:text-4xl">
-                  Zakaži besplatan probni čas
+                  Zakaži besplatne konsultacije
                 </h2>
                 <p className="mt-4 max-w-md leading-relaxed text-white/70">
                   Ostavi podatke i javljamo ti se u roku od 24h da dogovorimo
-                  termin. Bez obaveza — samo dođi i vidi kako izgleda čas kod nas.
+                  termin. Bez obaveza — samo dođi i vidi kako funkcionišemo.
                 </p>
 
                 <ul className="mt-8 space-y-4">
@@ -112,7 +112,7 @@ export function Contact() {
                     Hvala na prijavi!
                   </h3>
                   <p className="mt-2 max-w-xs text-muted">
-                    Javljamo ti se uskoro da dogovorimo termin probnog časa.
+                    Javljamo ti se uskoro da dogovorimo termin konsultacija.
                   </p>
                 </div>
               ) : (

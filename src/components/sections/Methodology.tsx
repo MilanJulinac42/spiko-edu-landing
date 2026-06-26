@@ -7,7 +7,7 @@ const steps = [
   {
     num: "01",
     title: "Procena nivoa",
-    text: "Besplatan probni čas na kom utvrđujemo tvoj nivo i ciljeve.",
+    text: "Besplatne konsultacije na kojima utvrđujemo tvoj nivo i ciljeve.",
     icon: Target,
   },
   {
@@ -25,7 +25,7 @@ const steps = [
   {
     num: "04",
     title: "Praćenje napretka",
-    text: "Redovni feedback i provere znanja da uvek znaš gde si.",
+    text: "Redovni feedback da uvek znaš gde si — i provera znanja na kraju nivoa.",
     icon: LineChart,
   },
 ];
@@ -43,7 +43,7 @@ export function Methodology() {
             <SectionHeading
               align="left"
               eyebrow="Naša metodologija"
-              title="Metod koji te zaista nauči da govoriš"
+              title="Metoda koja te zaista nauči da govoriš"
               description="Zaboravi bubanje. Kod nas učiš jezik onako kako se zaista koristi — u razgovoru."
             />
             <div className="mt-8 hidden rounded-3xl bg-ink p-8 text-white shadow-card lg:block">

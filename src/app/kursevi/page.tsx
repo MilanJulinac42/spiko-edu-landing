@@ -3,7 +3,6 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { CoursesDetail } from "@/components/sections/CoursesDetail";
 import { Formats } from "@/components/sections/Formats";
 import { LevelGuide } from "@/components/sections/LevelGuide";
-import { Destinations } from "@/components/sections/Destinations";
 import { Pricing } from "@/components/sections/Pricing";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -26,12 +25,11 @@ export default function KurseviPage() {
       <CoursesDetail />
       <Formats />
       <LevelGuide />
-      <Destinations />
       <Pricing />
       <Faq />
       <CtaBand
         title="Spreman/na da upišeš kurs?"
-        description="Zakaži besplatan probni čas — utvrdimo tvoj nivo i krenemo odatle."
+        description="Zakaži besplatne konsultacije — utvrdimo tvoj nivo i krenemo odatle."
       />
     </>
   );

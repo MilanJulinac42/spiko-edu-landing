@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/Logo";
 import { cn } from "@/lib/utils";
 
@@ -42,10 +41,10 @@ export function Navbar() {
           : "bg-transparent"
       )}
     >
-      <Container className="flex h-18 items-center justify-between py-3">
+      <Container className="relative flex h-18 items-center justify-between py-3">
         <Logo invert={!scrolled} />
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-8 lg:flex">
           {links.map((l) => {
             const active = pathname === l.href;
             return (
@@ -68,12 +67,6 @@ export function Navbar() {
             );
           })}
         </nav>
-
-        <div className="hidden items-center gap-3 lg:flex">
-          <Button href="/kontakt" variant="primary" size="md">
-            Prijavi se
-          </Button>
-        </div>
 
         <button
           type="button"
@@ -129,15 +122,6 @@ export function Navbar() {
               {l.label}
             </Link>
           ))}
-          <Button
-            href="/kontakt"
-            variant="primary"
-            size="lg"
-            className="mt-2"
-            onClick={() => setOpen(false)}
-          >
-            Prijavi se
-          </Button>
         </Container>
       </div>
     </header>
