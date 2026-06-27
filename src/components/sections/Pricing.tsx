@@ -140,7 +140,7 @@ export function Pricing() {
                         )}
                       >
                         <td className="px-6 py-3.5">
-                          <span className="inline-grid min-w-[3.5rem] place-items-center rounded-lg bg-gradient-to-br from-primary to-secondary px-3 py-1.5 text-sm font-bold text-white shadow-sm">
+                          <span className="grid w-48 place-items-center rounded-lg bg-gradient-to-br from-primary to-secondary px-3 py-1.5 text-center text-sm font-bold text-white shadow-sm">
                             {c.nivo}
                           </span>
                         </td>
