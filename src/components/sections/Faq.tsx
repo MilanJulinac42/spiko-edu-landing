@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: "Da li su časovi uživo ili online?",
-    a: "Nudimo oba formata. Možeš pohađati nastavu u našoj učionici u Novom Sadu ili online preko video poziva. Mnogi polaznici kombinuju oba.",
+    a: "Nudimo oba formata. Možeš pohađati nastavu u našoj učionici u Bačkoj Palanci ili online preko video poziva. Mnogi polaznici kombinuju oba.",
   },
   {
     q: "Koliko traje jedan kurs?",

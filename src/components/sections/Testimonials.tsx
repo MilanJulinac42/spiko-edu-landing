@@ -4,25 +4,32 @@ import { TiltCard } from "@/components/ui/TiltCard";
 
 const testimonials = [
   {
-    name: "Marija Petrović",
-    role: "Polaznica engleskog, B2",
-    avatar: "MP",
+    name: "Mihailo",
+    role: "Polaznik nemačkog, C1",
+    avatar: "M",
     color: "bg-primary",
-    text: "Posle godinu dana u Spiko Edu položila sam IELTS sa 7.5! Profesori su neverovatno posvećeni, a časovi nikad nisu dosadni.",
+    text: "Posle 6 godina bez kontakta sa stranim jezicima, sa Emom sam položio Goethe-Zertifikat B2. Akcenat je na konverzaciji i aktivnim veštinama, uz najsavremenije materijale — udžbenik je samo polazna osnova. Stekneš znanje primenljivo u svakodnevnom životu.",
   },
   {
-    name: "Nikola Jovanović",
-    role: "Polaznik nemačkog, A2",
-    avatar: "NJ",
+    name: "Teodora",
+    role: "Polaznica nemačkog, A1",
+    avatar: "T",
     color: "bg-secondary",
-    text: "Selio sam se u Nemačku zbog posla i za par meseci sam progovorio. Praktičan pristup koji stvarno funkcioniše.",
+    text: "Dugo sam se dvoumila gde da krenem, a sada sam prezadovoljna. Nema nikakvog pritiska, sve ide laganim tempom, a Ema objašnjava jasno i jednostavno. Časovi nikad nisu dosadni i stalno me motiviše da napredujem.",
   },
   {
-    name: "Ana Kovačević",
-    role: "Roditelj polaznika",
-    avatar: "AK",
+    name: "Ljiljana",
+    role: "Polaznica nemačkog, A1",
+    avatar: "Lj",
     color: "bg-primary-dark",
-    text: "Moja ćerka jedva čeka časove engleskog. Male grupe i topla atmosfera čine da se deca osećaju prijatno i napreduju.",
+    text: "Emini časovi su izuzetno zanimljivi i drže pažnju. Fleksibilna je i temeljna — važno joj je da razumeš gde si pogrešio i da naučiš da sam prepoznaš svoje greške.",
+  },
+  {
+    name: "Nemanja",
+    role: "Polaznik nemačkog, A2",
+    avatar: "N",
+    color: "bg-secondary-dark",
+    text: "Ema je fantastična nastavnica i vidi se da voli svoj posao. Ne radimo samo gramatiku — puno pažnje ide na govor, što mi je najvažnije. Domaći su raznovrsni: od vežbi do slušanja video klipova na nemačkom.",
   },
 ];
 
@@ -36,7 +43,7 @@ export function Testimonials() {
           description="Ne moraš da nam veruješ na reč — evo šta kažu naši polaznici."
         />
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
           {testimonials.map((t, idx) => (
             <TiltCard
               key={t.name}

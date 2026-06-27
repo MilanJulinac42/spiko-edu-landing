@@ -8,10 +8,11 @@ const data = {
     "Škola jezika za nemački i engleski — grupni i individualni časovi, priprema za Goethe, ÖSD, IELTS i Cambridge ispite.",
   url: SITE_URL,
   email: "spikoedu@gmail.com",
-  telephone: "+381600000000",
+  telephone: "+381629611743",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Novi Sad",
+    streetAddress: "Vase Stajića 2a/10",
+    addressLocality: "Bačka Palanka",
     addressCountry: "RS",
   },
   sameAs: [] as string[],

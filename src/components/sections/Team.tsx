@@ -3,14 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
-import {
-  GraduationCap,
-  Briefcase,
-  Award,
-  Languages,
-  ArrowRight,
-  X,
-} from "lucide-react";
+import { GraduationCap, Briefcase, Award, ArrowRight, X } from "lucide-react";
 import DE from "country-flag-icons/react/3x2/DE";
 import GB from "country-flag-icons/react/3x2/GB";
 import { Container } from "@/components/ui/Container";
@@ -31,11 +24,9 @@ type Teacher = {
   bio: string;
   experience: { period: string; title: string; place: string }[];
   education: { period: string; title: string; place: string }[];
-  certs: string[];
-  specialties: string[];
+  certs?: string[];
 };
 
-// NAPOMENA: tekstovi CV-a su placeholder dok ne stignu pravi podaci.
 const teachers: Teacher[] = [
   {
     id: "ema",
@@ -46,25 +37,20 @@ const teachers: Teacher[] = [
     accent: "primary",
     photo: "/team/ema.jpg",
     tagline:
-      "Vodim te od prvih reči do Goethe/ÖSD sertifikata — strpljivo, sistematično i sa puno prakse.",
-    bio: "Predajem nemački jezik svim uzrastima i nivoima, sa posebnim fokusom na pripremu za zvanične ispite (Goethe, ÖSD) i nemački za posao i život u inostranstvu. Časove gradim oko razgovora i stvarnih situacija.",
+      "Pričanje je na prvom mestu — uz opuštenu, prijateljsku atmosferu u kojoj slobodno propričaš.",
+    bio: "Predajem nemački jezik svim uzrastima i nivoima, sa velikim entuzijazmom i ljubavlju. Pričanje zauzima prvo mesto, a svaki čas je zapravo strukturisan oko njega. Opuštena i prijateljska atmosfera mi je jako važna, da i ti možeš da se opustiš i slobodno propričaš. I sama uvek učim neki jezik, mislim da je to najbolji mogući hobi — i zbog zdravstvenih benefita i zabave, i zbog praktične koristi. Kao osobu koja se bavi humanističkim naukama, zanimaju me ljudi i kod svog posla najviše volim to što svaku osobu upoznam toliko duboko da ih verovatno ni najbolji prijatelji u toj meri ne poznaju. Jedva čekam i tebe da upoznam!",
     experience: [
-      { period: "2019 — danas", title: "Profesorka nemačkog", place: "Spiko Edu" },
-      { period: "2016 — 2019", title: "Lektorka / predavač", place: "(placeholder)" },
+      { period: "2025 — danas", title: "Profesorka nemačkog", place: "Edukativni centar „Spiko”" },
+      { period: "2023 — danas", title: "Profesorka nemačkog", place: "Gimnazija „20. oktobar”" },
+      { period: "2020 — 2023", title: "Profesorka nemačkog", place: "„Germania Zentrum”" },
+      { period: "2018 — 2020", title: "Profesorka nemačkog", place: "Privatno" },
     ],
     education: [
-      {
-        period: "(godina)",
-        title: "Master germanistike",
-        place: "(univerzitet — placeholder)",
-      },
+      { period: "2025 — danas", title: "MAS: Nemački jezik i književnost", place: "Filozofski fakultet, Novi Sad" },
+      { period: "2018 — 2024", title: "OAS: Nemački jezik i književnost", place: "Filozofski fakultet, Novi Sad" },
+      { period: "2014 — 2018", title: "Smer živi jezici: englesko-nemački", place: "Karlovačka filološka gimnazija, Sremski Karlovci" },
     ],
-    certs: ["Goethe-Zertifikat C2", "ÖSD priprema", "(dodaj prave)"],
-    specialties: [
-      "Priprema za Goethe / ÖSD",
-      "Nemački za zdravstvene radnike",
-      "Konverzacija A1–C1",
-    ],
+    certs: ["DSD II (C1) — 2018."],
   },
   {
     id: "jana",
@@ -75,24 +61,15 @@ const teachers: Teacher[] = [
     accent: "secondary",
     photo: "/team/jana.jpg",
     tagline:
-      "Spajam književnost i živi jezik — engleski koji odmah koristiš, uz pripremu za Cambridge i IELTS.",
-    bio: "Predajem engleski jezik kroz konverzaciju, čitanje i stvarne situacije. Pripremam polaznike za međunarodne ispite (Cambridge, IELTS) i poslovni engleski, uz pristup prilagođen svakom polazniku.",
+      "Engleski kroz konverzaciju i stvarne situacije — od nule do filozofskih rasprava.",
+    bio: "Nikad nisam mislila da ću ovime da se bavim, ali nakon nedelju dana sam se zaljubila u posao. Predajem engleski jezik kroz konverzaciju i stvarne situacije. Pripremam polaznike za međunarodne ispite (Cambridge, IELTS) i poslovni engleski, uz pristup prilagođen interesovanjima, željama i mogućnostima svakog polaznika. Opuštena i prijateljska atmosfera je a must, jer ćeš tako i ti lakše da se opustiš i propričaš. Najviše volim da sa nekim počnem od nule i da za dve godine raspravljamo o filozofskim temama na engleskom.",
     experience: [
-      { period: "2020 — danas", title: "Profesorka engleskog", place: "Spiko Edu" },
-      { period: "2017 — 2020", title: "Predavač", place: "(placeholder)" },
+      { period: "2025 — danas", title: "Profesorka engleskog", place: "Edukativni centar „Spiko”" },
+      { period: "2021 — 2025", title: "Profesorka engleskog", place: "Privatno" },
     ],
     education: [
-      {
-        period: "(godina)",
-        title: "Master anglistike",
-        place: "(univerzitet — placeholder)",
-      },
-    ],
-    certs: ["C2 Proficiency (CPE)", "IELTS priprema", "(dodaj prave)"],
-    specialties: [
-      "Priprema za Cambridge / IELTS",
-      "Poslovni engleski",
-      "Konverzacija A1–C1",
+      { period: "2019 — 2026", title: "OAS: Engleski jezik sa drugom stranom filologijom", place: "Filozofski fakultet, Novi Sad" },
+      { period: "2015 — 2019", title: "Društveno-jezički smer", place: "Gimnazija „20. oktobar”, Bačka Palanka" },
     ],
   },
 ];
@@ -355,43 +332,20 @@ export function Team() {
                   ))}
                 </CvBlock>
 
-                <CvBlock icon={Award} title="Sertifikati" accent={active.accent}>
-                  <div className="flex flex-wrap gap-2">
-                    {active.certs.map((c) => (
-                      <span
-                        key={c}
-                        className="rounded-full border border-ink/10 bg-surface px-3 py-1 text-sm font-medium text-ink/70"
-                      >
-                        {c}
-                      </span>
-                    ))}
-                  </div>
-                </CvBlock>
-
-                <CvBlock
-                  icon={Languages}
-                  title="Specijalnosti"
-                  accent={active.accent}
-                >
-                  <ul className="space-y-2">
-                    {active.specialties.map((s) => (
-                      <li
-                        key={s}
-                        className="flex items-center gap-3 text-sm text-ink/80"
-                      >
+                {active.certs && active.certs.length > 0 && (
+                  <CvBlock icon={Award} title="Sertifikati" accent={active.accent}>
+                    <div className="flex flex-wrap gap-2">
+                      {active.certs.map((c) => (
                         <span
-                          className={cn(
-                            "h-1.5 w-1.5 rounded-full",
-                            active.accent === "primary"
-                              ? "bg-primary"
-                              : "bg-secondary"
-                          )}
-                        />
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
-                </CvBlock>
+                          key={c}
+                          className="rounded-full border border-ink/10 bg-surface px-3 py-1 text-sm font-medium text-ink/70"
+                        >
+                          {c}
+                        </span>
+                      ))}
+                    </div>
+                  </CvBlock>
+                )}
                 </div>
               </div>
 

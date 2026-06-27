@@ -71,13 +71,13 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+381600000000"
+                  href="tel:+381629611743"
                   className="transition-colors hover:text-primary"
                 >
-                  +381 60 000 0000
+                  +381 62 9611743
                 </a>
               </li>
-              <li>Novi Sad, Srbija</li>
+              <li>Vase Stajića 2a/10, Bačka Palanka</li>
             </ul>
           </div>
         </div>
