@@ -11,8 +11,6 @@ import { Reveal } from "@/components/ui/Reveal";
 const inputClass =
   "w-full rounded-xl border border-ink/10 bg-white px-4 py-3 text-ink placeholder:text-muted/60 focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/15";
 
-const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
-
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">(
     "idle"
@@ -20,24 +18,26 @@ export function Contact() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!ACCESS_KEY) {
-      setStatus("error");
-      return;
-    }
     const form = e.currentTarget;
     const data = new FormData(form);
-    data.append("access_key", ACCESS_KEY);
-    data.append("subject", "Nova prijava sa sajta — Spiko Edu");
-    data.append("from_name", "Spiko Edu sajt");
+    const payload = {
+      ime: data.get("ime"),
+      email: data.get("email"),
+      telefon: data.get("telefon"),
+      jezik: data.get("jezik"),
+      poruka: data.get("poruka"),
+      botcheck: data.get("botcheck"),
+    };
 
     setStatus("loading");
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        body: data,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
       const json = await res.json();
-      if (json.success) {
+      if (res.ok && json.success) {
         setStatus("sent");
         form.reset();
       } else {
