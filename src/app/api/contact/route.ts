@@ -77,10 +77,7 @@ export async function POST(req: Request) {
 
     if (error) {
       console.error('[contact] resend error', error)
-      return Response.json(
-        { success: false, error: 'Slanje nije uspelo.', detail: (error as { message?: string })?.message ?? String(error) },
-        { status: 502 },
-      )
+      return Response.json({ success: false, error: 'Slanje nije uspelo.' }, { status: 502 })
     }
 
     return Response.json({ success: true })
