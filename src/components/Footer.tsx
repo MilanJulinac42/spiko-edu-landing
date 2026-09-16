@@ -83,7 +83,20 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-white/50 sm:flex-row">
-          <p>© {new Date().getFullYear()} Spiko Edu. Sva prava zadržana.</p>
+          <div className="space-y-1 text-center sm:text-left">
+            <p>© {new Date().getFullYear()} Spiko Edu. Sva prava zadržana.</p>
+            <p>
+              Sajt izradio{" "}
+              <a
+                href="https://solveradev.rs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-white/70 transition-colors hover:text-primary"
+              >
+                Milan Julinac — Solvera
+              </a>
+            </p>
+          </div>
           <div className="flex gap-6">
             <Link href="/politika-privatnosti" className="hover:text-primary">
               Politika privatnosti
